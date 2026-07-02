@@ -1,2 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chitsanupong Kongkaewkhao | Landscape Architecture Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Import "Synonym" font from Fontshare */
+        @import url('https://api.fontshare.com/v2/css?f[]=synonym@200,300,400,500,600,700&display=swap');
+        
+        body {
+            font-family: 'Synonym', sans-serif;
+            background-color: #FAFAFA;
+            color: #1A1A1A;
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar for an elegant minimalist look */
+        ::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAFAFA;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E5E5E5;
+            border-radius: 2px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #CCCCCC;
+        }
+
+        /* Smooth page transition fades */
+        .fade-in {
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-neutral-200">
+
+    <div class="min-h-screen flex flex-col md:flex-row">
+        
+        <aside class="w-full md:w-[340px] md:fixed md:top-0 md:left-0 md:h-screen p-8 md:p-12 flex flex-col justify-between bg-[#FAFAFA] z-50">
+            <div class="space-y-12">
+                <div>
+                    <button onclick="navigateTo('home')" class="text-left group focus:outline-none">
+                        <h1 class="text-base font-semibold tracking-tight uppercase text-neutral-900 group-hover:text-neutral-500 transition-colors duration-200">
+                            Chitsanupong Kongkaewkhao
+                        </h1>
+                        <p class="text-xs text-neutral-400 mt-1 uppercase tracking-widest">Landscape Architecture Student</p>
+                    </button>
+                </div>
+
+                <nav class="flex flex-col space-y-3 text-sm">
+                    <button onclick="navigateTo('about')" id="nav-about" class="text-left text-neutral-400 hover:text-neutral-900 transition-colors duration-200 uppercase tracking-wider font-medium focus:outline-none">
+                        About
+                    </button>
+                    <button onclick="navigateTo('projects')" id="nav-projects" class="text-left text-neutral-400 hover:text-neutral-900 transition-colors duration-200 uppercase tracking-wider font-medium focus:outline-none">
+                        Projects
+                    </button>
+                    <button onclick="navigateTo('contact')" id="nav-contact" class="text-left text-neutral-400 hover:text-neutral-900 transition-colors duration-200 uppercase tracking-wider font-medium focus:outline-none">
+                        Contact
+                    </button>
+                </nav>
+            </div>
+
+            <div class="hidden md:block text-[11px] text-neutral-400 uppercase tracking-widest">
+                &copy; 2026 Chitsanupong K.
+            </div>
+        </aside>
+
+        <main class="w-full md:ml-[340px] p-8 md:p-12 flex-1">
+            
+            <section id="view-home" class="view-section fade-in">
+                <div class="max-w-5xl h-[70vh] md:h-[80vh] flex flex-col justify-center border-b border-neutral-200">
+                    <h2 class="text-2xl md:text-4xl font-light tracking-tight text-neutral-800 max-w-3xl leading-relaxed mb-8">
+                        Designing responsive landscapes, prioritizing <span class="font-medium text-neutral-950">ecological resilience</span> and strategic <span class="font-medium text-neutral-950">urban regeneration</span>.
+                    </h2>
+                    <div class="w-full aspect-[16/9] bg-neutral-100 rounded overflow-hidden relative group cursor-pointer border border-neutral-200" onclick="navigateTo('projects')">
+                        <img src="images/featured-hero.jpg" alt="Featured Architectural Rendering" class="absolute inset-0 w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-750 scale-100 group-hover:scale-102 z-10" onerror="this.style.display='none';">
+                        <div class="absolute inset-0 flex flex-col items-center justify-center bg-neutral-50 text-neutral-400 group-hover:bg-neutral-100 transition-colors duration-300 z-0">
+                             <svg class="w-8 h-8 mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                             <span class="text-xs uppercase tracking-widest font-mono">images/featured-hero.jpg</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="view-about" class="view-section hidden">
+                <div class="max-w-3xl pt-4 md:pt-12 fade-in">
+                    <h2 class="text-xs uppercase tracking-widest text-neutral-400 mb-8">Profile</h2>
+                    
+                    <div class="flex flex-col md:flex-row gap-8 items-start mb-16">
+                        
+                        <div class="w-full md:w-[220px] shrink-0 aspect-[3/4] bg-neutral-100 rounded overflow-hidden relative border border-neutral-200 flex items-center justify-center">
+                            <img src="images/profile.jpg" alt="Chitsanupong Profile" class="absolute inset-0 w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500 z-10" onerror="this.style.display='none';">
+                            <div class="text-center p-4 text-[11px] text-neutral-400 uppercase tracking-wider relative z-0">
+                                <svg class="w-12 h-12 mx-auto mb-3 opacity-30" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+                                [ Profile Image ]<br>
+                                <span class="font-mono text-[9px] lowercase mt-1 block">images/profile.jpg</span>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-6 text-sm md:text-base text-neutral-600 leading-relaxed font-light flex-1">
+                            <h3 class="text-xl font-medium tracking-tight text-neutral-900 mb-2">Chitsanupong Kongkaewkhao (Sand)</h3>
+                            <p>
+                                I am a 4th-year Landscape Architecture student at Chulalongkorn University, driven by the challenge of transforming complex urban conditions into high-performance, resilient public spaces. My academic and design focus centers on urban development frameworks, brownfield redevelopment, and ecological landscape master planning.
+                            </p>
+                            <p>
+                                By integrating spatial design with analytical tools, I aim to base design decisions on empirical landscape performance data—mitigating microclimate issues and flooding risks before crafting human-scale spatial experiences.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 pt-12 border-t border-neutral-200 text-xs">
+                        <div class="space-y-6">
+                            <div>
+                                <h3 class="font-semibold uppercase tracking-wider text-neutral-900 mb-3">Higher Education</h3>
+                                <ul class="space-y-1 text-neutral-500">
+                                    <li class="font-medium text-neutral-800">Chulalongkorn University</li>
+                                    <li>Faculty of Architecture</li>
+                                    <li>Bachelor of Landscape Architecture (BLA), Year 4</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold uppercase tracking-wider text-neutral-900 mb-3">Secondary Education</h3>
+                                <ul class="space-y-1 text-neutral-500">
+                                    <li class="font-medium text-neutral-800">Bodindecha (Sing Singhaseni) School</li>
+                                    <li>High School Curriculum</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="font-semibold uppercase tracking-wider text-neutral-900 mb-6">Technical Competencies</h3>
+                            
+                            <div class="grid grid-cols-2 gap-x-4 gap-y-6 text-neutral-600 font-medium text-xs">
+                                
+                                <div class="flex items-center gap-3">
+                                    <img src="images/qgis.svg" alt="QGIS Logo" class="w-6 h-6 block object-contain shrink-0" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
+                                    <div class="hidden w-6 h-6 bg-neutral-200 rounded flex items-center justify-center text-[10px] font-bold text-neutral-400 shrink-0">?</div>
+                                    <span>QGIS</span>
+                                </div>
+
+                                <div class="flex items-center gap-3">
+                                    <img src="images/autocad.svg" alt="AutoCAD Logo" class="w-6 h-6 block object-contain shrink-0" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
+                                    <div class="hidden w-6 h-6 bg-neutral-200 rounded flex items-center justify-center text-[10px] font-bold text-neutral-400 shrink-0">?</div>
+                                    <span>AutoCAD</span>
+                                </div>
+
+                                <div class="flex items-center gap-3">
+                                    <img src="images/rhino.svg" alt="Rhino Logo" class="w-6 h-6 block object-contain shrink-0" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
+                                    <div class="hidden w-6 h-6 bg-neutral-200 rounded flex items-center justify-center text-[10px] font-bold text-neutral-400 shrink-0">?</div>
+                                    <span>Rhino 3D</span>
+                                </div>
+
+                                <div class="flex items-center gap-3">
+                                    <img src="images/d5render.svg" alt="D5 Render Logo" class="w-6 h-6 block object-contain shrink-0" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
+                                    <div class="hidden w-6 h-6 bg-neutral-200 rounded flex items-center justify-center text-[10px] font-bold text-neutral-400 shrink-0">?</div>
+                                    <span>D5 Render</span>
+                                </div>
+
+                                <div class="flex items-center gap-3">
+                                    <img src="images/photoshop.svg" alt="Photoshop Logo" class="w-6 h-6 block object-contain shrink-0" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
+                                    <div class="hidden w-6 h-6 bg-neutral-200 rounded flex items-center justify-center text-[10px] font-bold text-neutral-400 shrink-0">?</div>
+                                    <span>Photoshop</span>
+                                </div>
+
+                                <div class="flex items-center gap-3">
+                                    <img src="images/illustrator.svg" alt="Illustrator Logo" class="w-6 h-6 block object-contain shrink-0" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
+                                    <div class="hidden w-6 h-6 bg-neutral-200 rounded flex items-center justify-center text-[10px] font-bold text-neutral-400 shrink-0">?</div>
+                                    <span>Illustrator</span>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="view-projects" class="view-section hidden">
+                <div class="max-w-6xl pt-4 md:pt-12 fade-in">
+                    <h2 class="text-xs uppercase tracking-widest text-neutral-400 mb-12">Selected Works</h2>
+                    
+                    <div class="space-y-24">
+                        
+                        <div onclick="openProject('yourstream')" class="group flex flex-col md:flex-row gap-8 md:gap-12 cursor-pointer pb-12 border-b border-neutral-100">
+                            <div class="w-full md:w-1/3 flex flex-col justify-between py-2">
+                                <div>
+                                    <h3 class="text-lg font-medium text-neutral-900 group-hover:text-neutral-500 transition-colors duration-200">Your Stream</h3>
+                                    <p class="text-xs text-neutral-400 uppercase tracking-widest mt-1">Location / Context</p>
+                                </div>
+                                <div class="mt-4 md:mt-0 text-xs text-neutral-500 font-light leading-relaxed line-clamp-3">
+                                    A brief description of the Your Stream project. Ecological integration and landscape performance focus.
+                                </div>
+                            </div>
+                            <div class="w-full md:w-2/3 aspect-[16/10] bg-neutral-100 rounded overflow-hidden relative border border-neutral-200">
+                                <img src="images/yourstream-thumb.jpg" alt="Your Stream Thumbnail" class="absolute inset-0 w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-101 z-10" onerror="this.style.display='none';">
+                                <div class="absolute inset-0 flex flex-col items-center justify-center bg-neutral-50 text-neutral-400 transition-colors duration-300 z-0">
+                                     <span class="text-[10px] uppercase tracking-widest font-mono">images/yourstream-thumb.jpg</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div onclick="openProject('chiangmaizoo')" class="group flex flex-col md:flex-row gap-8 md:gap-12 cursor-pointer pb-12 border-b border-neutral-100">
+                            <div class="w-full md:w-1/3 flex flex-col justify-between py-2">
+                                <div>
+                                    <h3 class="text-lg font-medium text-neutral-900 group-hover:text-neutral-500 transition-colors duration-200">CHAINGMAI ZOO</h3>
+                                    <p class="text-xs text-neutral-400 uppercase tracking-widest mt-1">Chiang Mai, Thailand</p>
+                                </div>
+                                <div class="mt-4 md:mt-0 text-xs text-neutral-500 font-light leading-relaxed line-clamp-3">
+                                    Large-scale site planning framework reorganizing eco-zoning hierarchies and experiential programmatic pathways down mountain slopes.
+                                </div>
+                            </div>
+                            <div class="w-full md:w-2/3 aspect-[16/10] bg-neutral-100 rounded overflow-hidden relative border border-neutral-200">
+                                <img src="images/chiangmaizoo-thumb.jpg" alt="Chiangmai Zoo Thumbnail" class="absolute inset-0 w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-101 z-10" onerror="this.style.display='none';">
+                                <div class="absolute inset-0 flex flex-col items-center justify-center bg-neutral-50 text-neutral-400 transition-colors duration-300 z-0">
+                                     <span class="text-[10px] uppercase tracking-widest font-mono">images/chiangmaizoo-thumb.jpg</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div onclick="openProject('nongbon')" class="group flex flex-col md:flex-row gap-8 md:gap-12 cursor-pointer pb-12 border-b border-neutral-100">
+                            <div class="w-full md:w-1/3 flex flex-col justify-between py-2">
+                                <div>
+                                    <h3 class="text-lg font-medium text-neutral-900 group-hover:text-neutral-500 transition-colors duration-200">NONGBON LAKE</h3>
+                                    <p class="text-xs text-neutral-400 uppercase tracking-widest mt-1">Bangkok, Thailand</p>
+                                </div>
+                                <div class="mt-4 md:mt-0 text-xs text-neutral-500 font-light leading-relaxed line-clamp-3">
+                                    A brief description of the Nongbon Lake project. Focusing on water management, public park integration, and recreational spaces.
+                                </div>
+                            </div>
+                            <div class="w-full md:w-2/3 aspect-[16/10] bg-neutral-100 rounded overflow-hidden relative border border-neutral-200">
+                                <img src="images/nongbon-thumb.jpg" alt="Nongbon Lake Thumbnail" class="absolute inset-0 w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-101 z-10" onerror="this.style.display='none';">
+                                <div class="absolute inset-0 flex flex-col items-center justify-center bg-neutral-50 text-neutral-400 transition-colors duration-300 z-0">
+                                     <span class="text-[10px] uppercase tracking-widest font-mono">images/nongbon-thumb.jpg</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div onclick="openProject('fragile')" class="group flex flex-col md:flex-row gap-8 md:gap-12 cursor-pointer pb-12 border-b border-neutral-100">
+                            <div class="w-full md:w-1/3 flex flex-col justify-between py-2">
+                                <div>
+                                    <h3 class="text-lg font-medium text-neutral-900 group-hover:text-neutral-500 transition-colors duration-200">FRAGILE (MEMORIAL PARK)</h3>
+                                    <p class="text-xs text-neutral-400 uppercase tracking-widest mt-1">Location / Context</p>
+                                </div>
+                                <div class="mt-4 md:mt-0 text-xs text-neutral-500 font-light leading-relaxed line-clamp-3">
+                                    A brief description of the Fragile Memorial Park project. Exploring memory, landscape sensitivity, and emotional spatial sequencing.
+                                </div>
+                            </div>
+                            <div class="w-full md:w-2/3 aspect-[16/10] bg-neutral-100 rounded overflow-hidden relative border border-neutral-200">
+                                <img src="images/fragile-thumb.jpg" alt="Fragile Memorial Park Thumbnail" class="absolute inset-0 w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-101 z-10" onerror="this.style.display='none';">
+                                <div class="absolute inset-0 flex flex-col items-center justify-center bg-neutral-50 text-neutral-400 transition-colors duration-300 z-0">
+                                     <span class="text-[10px] uppercase tracking-widest font-mono">images/fragile-thumb.jpg</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div onclick="openProject('houseno1')" class="group flex flex-col md:flex-row gap-8 md:gap-12 cursor-pointer pb-12 border-b border-neutral-100">
+                            <div class="w-full md:w-1/3 flex flex-col justify-between py-2">
+                                <div>
+                                    <h3 class="text-lg font-medium text-neutral-900 group-hover:text-neutral-500 transition-colors duration-200">HOUSE NO 1</h3>
+                                    <p class="text-xs text-neutral-400 uppercase tracking-widest mt-1">Residential Project</p>
+                                </div>
+                                <div class="mt-4 md:mt-0 text-xs text-neutral-500 font-light leading-relaxed line-clamp-3">
+                                    A brief description of House No 1. Integrating landscape architecture with residential design to enhance living quality.
+                                </div>
+                            </div>
+                            <div class="w-full md:w-2/3 aspect-[16/10] bg-neutral-100 rounded overflow-hidden relative border border-neutral-200">
+                                <img src="images/houseno1-thumb.jpg" alt="House No 1 Thumbnail" class="absolute inset-0 w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-101 z-10" onerror="this.style.display='none';">
+                                <div class="absolute inset-0 flex flex-col items-center justify-center bg-neutral-50 text-neutral-400 transition-colors duration-300 z-0">
+                                     <span class="text-[10px] uppercase tracking-widest font-mono">images/houseno1-thumb.jpg</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section id="view-project-detail" class="view-section hidden">
+                <div class="max-w-7xl pt-4 md:pt-12 fade-in">
+                    <button onclick="navigateTo('projects')" class="mb-12 inline-flex items-center text-xs uppercase tracking-widest text-neutral-400 hover:text-neutral-900 transition-colors duration-200 focus:outline-none">
+                        &larr; Back to Selected Works
+                    </button>
+
+                    <div class="flex flex-col lg:flex-row gap-12 lg:gap-16">
+                        <div class="w-full lg:w-1/3 lg:sticky lg:top-12 h-fit space-y-10">
+                            <div>
+                                <h2 id="project-detail-title" class="text-2xl font-medium tracking-tight text-neutral-900">Project Title</h2>
+                                <p id="project-detail-location" class="text-xs text-neutral-400 uppercase tracking-widest mt-1">Location, Region</p>
+                            </div>
+
+                            <div class="border-t border-neutral-200 pt-6 space-y-4 text-xs uppercase tracking-wider">
+                                <div class="flex justify-between py-1 border-b border-neutral-100">
+                                    <span class="text-neutral-400 font-light">Typology</span>
+                                    <span id="project-detail-type" class="text-neutral-800 font-medium text-right">-</span>
+                                </div>
+                                <div class="flex justify-between py-1 border-b border-neutral-100">
+                                    <span class="text-neutral-400 font-light">Scale Size</span>
+                                    <span id="project-detail-size" class="text-neutral-800 font-medium text-right">-</span>
+                                </div>
+                                <div class="flex justify-between py-1 border-b border-neutral-100">
+                                    <span class="text-neutral-400 font-light">Status Phase</span>
+                                    <span id="project-detail-status" class="text-neutral-800 font-medium text-right">-</span>
+                                </div>
+                            </div>
+
+                            <div class="space-y-3">
+                                <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-900">Design Framework & Concept</h4>
+                                <p id="project-detail-desc" class="text-sm font-light text-neutral-600 leading-relaxed">
+                                    Description text...
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="w-full lg:w-2/3 space-y-8" id="project-detail-image-stack">
+                            </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="view-contact" class="view-section hidden">
+                <div class="max-w-2xl pt-4 md:pt-12 fade-in">
+                    <h2 class="text-xs uppercase tracking-widest text-neutral-400 mb-12">Contact & Inquiries</h2>
+                    
+                    <div class="space-y-8 text-sm font-light text-neutral-600">
+                        <p>
+                            I am currently looking for an internship placement at a landscape architecture firm where I can contribute to forward-thinking ecological planning and refine my spatial design skills.
+                        </p>
+                        
+                        <div class="pt-8 border-t border-neutral-200 space-y-6 text-neutral-900 font-medium">
+                            <div>
+                                <span class="text-xs text-neutral-400 block font-normal uppercase tracking-wider mb-1">Email Connection</span>
+                                <a href="mailto:Ckongkaewkhao@gmail.com" class="text-base hover:text-neutral-500 underline underline-offset-4 transition-colors">Ckongkaewkhao@gmail.com</a>
+                            </div>
+                            <div>
+                                <span class="text-xs text-neutral-400 block font-normal uppercase tracking-wider mb-1">Mobile Hotline</span>
+                                <a href="tel:0982736816" class="text-base hover:text-neutral-500 transition-colors font-mono tracking-tight">098-273-6816</a>
+                            </div>
+                            <div>
+                                <span class="text-xs text-neutral-400 block font-normal uppercase tracking-wider mb-1">Instagram Network</span>
+                                <a href="https://instagram.com/__S_a_n_d._" target="_blank" class="text-base hover:text-neutral-500 underline underline-offset-4 transition-colors">@__S_a_n_d._</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        const projectData = {
+            yourstream: {
+                title: "Your Stream",
+                location: "Location / Context",
+                type: "Ecological Integration",
+                size: "XXX,XXX SQM",
+                status: "Academic Project",
+                desc: "A brief description of the Your Stream project. Detail your conceptual approach, ecological focus, and the overall design strategy here.",
+                images: [
+                    "images/yourstream-1.jpg",
+                    "images/yourstream-2.jpg",
+                    "images/yourstream-3.jpg"
+                ],
+                labels: ["01 / Perspective Render", "02 / Master Plan", "03 / Section Diagram"]
+            },
+            chiangmaizoo: {
+                title: "CHAINGMAI ZOO",
+                location: "Chiang Mai, Thailand",
+                type: "Large-Scale Regional Site Planning",
+                size: "850,000 SQM",
+                status: "Studio Spatial Planning Module",
+                desc: "Addressing complex topography and regional recreational demands, this large-scale master plan completely shifts the spatial structure of the Chiang Mai Zoo down its mountain slope terrain. The design structure maps out microclimate pockets to establish context-appropriate animal welfare zoning models while planning experiential public circulation paths that lower terrain steepness stress.",
+                images: [
+                    "images/chiangmaizoo-1.jpg",
+                    "images/chiangmaizoo-2.jpg"
+                ],
+                labels: ["01 / High-Altitude Overlook Render View", "02 / Macro Eco-Zoning Spatial Framework"]
+            },
+            nongbon: {
+                title: "NONGBON LAKE",
+                location: "Bangkok, Thailand",
+                type: "Public Park & Water Management",
+                size: "XXX,XXX SQM",
+                status: "Academic Project",
+                desc: "A brief description of the Nongbon Lake project. Explain how you integrated public recreational areas with effective water management systems.",
+                images: [
+                    "images/nongbon-1.jpg",
+                    "images/nongbon-2.jpg"
+                ],
+                labels: ["01 / Park Perspective", "02 / Water Circulation Plan"]
+            },
+            fragile: {
+                title: "FRAGILE (MEMORIAL PARK)",
+                location: "Location / Context",
+                type: "Memorial Landscape",
+                size: "XXX,XXX SQM",
+                status: "Academic Project",
+                desc: "A brief description of the Fragile Memorial Park project. Discuss the emotional journey, sensitivity to the site context, and material selection.",
+                images: [
+                    "images/fragile-1.jpg",
+                    "images/fragile-2.jpg"
+                ],
+                labels: ["01 / Memorial Space Render", "02 / Sequencing Layout"]
+            },
+            houseno1: {
+                title: "HOUSE NO 1",
+                location: "Residential Context",
+                type: "Residential Landscape Design",
+                size: "XXX SQM",
+                status: "Academic Project",
+                desc: "A brief description of House No 1. Highlight the connection between indoor and outdoor spaces, planting strategies, and private landscape design.",
+                images: [
+                    "images/houseno1-1.jpg",
+                    "images/houseno1-2.jpg"
+                ],
+                labels: ["01 / Courtyard View", "02 / Planting Plan"]
+            }
+        };
+
+        function navigateTo(viewId) {
+            document.querySelectorAll('.view-section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            const activeSection = document.getElementById(`view-${viewId}`);
+            if(activeSection) {
+                activeSection.classList.remove('hidden');
+                window.scrollTo({ top: 0 });
+            }
+
+            const menuButtons = ['about', 'projects', 'contact'];
+            menuButtons.forEach(btn => {
+                const el = document.getElementById(`nav-${btn}`);
+                if(el) {
+                    if(btn === viewId) {
+                        el.classList.remove('text-neutral-400');
+                        el.classList.add('text-neutral-900', 'font-semibold');
+                    } else {
+                        el.classList.remove('text-neutral-900', 'font-semibold');
+                        el.classList.add('text-neutral-400');
+                    }
+                }
+            });
+        }
+
+        function openProject(projectId) {
+            const data = projectData[projectId];
+            if(!data) return;
+
+            document.getElementById('project-detail-title').innerText = data.title;
+            document.getElementById('project-detail-location').innerText = data.location;
+            document.getElementById('project-detail-type').innerText = data.type;
+            document.getElementById('project-detail-size').innerText = data.size;
+            document.getElementById('project-detail-status').innerText = data.status;
             document.getElementById('project-detail-desc').innerText = data.desc;
+
+            const stackContainer = document.getElementById('project-detail-image-stack');
+            stackContainer.innerHTML = '';
+            
+            data.images.forEach((imgSrc, index) => {
+                const labelText = data.labels && data.labels[index] ? data.labels[index] : `Media Asset 0${index + 1}`;
+                const block = document.createElement('div');
+                block.className = 'space-y-2';
                 block.innerHTML = `
+                    <div class="w-full bg-neutral-100 rounded overflow-hidden border border-neutral-100 relative">
+                        <img src="${imgSrc}" alt="${labelText}" class="w-full h-auto object-cover relative z-10" onerror="this.style.display='none';">
+                        <div class="absolute inset-0 flex flex-col items-center justify-center p-12 text-center text-xs text-neutral-400 uppercase tracking-wider font-mono bg-neutral-100 z-0">
+                            [ ${imgSrc} ]
+                        </div>
+                    </div>
+                    <p class="text-[10px] uppercase tracking-widest text-neutral-400 font-light pl-1">${labelText}</p>
+                `;
+                stackContainer.appendChild(block);
+            });
+
+            navigateTo('project-detail');
+        }
+    </script>
+</body>
+</html>
