@@ -101,21 +101,24 @@
             </section>
 
             <section id="view-about" class="view-section hidden">
-                <div class="max-w-3xl pt-4 md:pt-12 fade-in">
-                    <h2 class="text-xs uppercase tracking-widest text-neutral-400 mb-8">Profile</h2>
+                <!-- ขยายสัดส่วนพื้นที่เนื้อหาจาก max-w-3xl เป็น max-w-5xl -->
+                <div class="max-w-5xl pt-4 md:pt-12 fade-in">
+                    <h2 class="text-sm uppercase tracking-widest text-neutral-400 mb-8 md:mb-12">Profile</h2>
                     
-                    <div class="flex flex-col md:flex-row gap-8 items-start mb-16">
-                        <div class="w-full md:w-[220px] shrink-0 aspect-[3/4] bg-neutral-100 rounded overflow-hidden relative border border-neutral-200 flex items-center justify-center">
+                    <div class="flex flex-col md:flex-row gap-10 md:gap-14 items-start mb-20">
+                        <!-- ขยายขนาดรูปโปรไฟล์ให้รับกับตัวหนังสือที่ใหญ่ขึ้น -->
+                        <div class="w-full md:w-[280px] shrink-0 aspect-[3/4] bg-neutral-100 rounded overflow-hidden relative border border-neutral-200 flex items-center justify-center">
                             <img src="images/profile.jpg" alt="Chitsanupong Profile" class="absolute inset-0 w-full h-full object-cover transition-all duration-500 z-10" onerror="this.style.display='none';">
-                            <div class="text-center p-4 text-[11px] text-neutral-400 uppercase tracking-wider relative z-0">
+                            <div class="text-center p-4 text-xs text-neutral-400 uppercase tracking-wider relative z-0">
                                 <svg class="w-12 h-12 mx-auto mb-3 opacity-30" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
                                 [ Profile Image ]<br>
-                                <span class="font-mono text-[9px] lowercase mt-1 block">images/profile.jpg</span>
+                                <span class="font-mono text-[10px] lowercase mt-1 block">images/profile.jpg</span>
                             </div>
                         </div>
                         
-                        <div class="space-y-6 text-sm md:text-base text-neutral-600 leading-relaxed font-light flex-1">
-                            <h3 class="text-xl font-medium tracking-tight text-neutral-900 mb-2">Chitsanupong Kongkaewkhao (Sand)</h3>
+                        <!-- ขยายขนาดตัวหนังสือเนื้อหาเป็น text-base md:text-lg -->
+                        <div class="space-y-6 text-base md:text-lg text-neutral-600 leading-relaxed font-light flex-1">
+                            <h3 class="text-2xl md:text-3xl font-medium tracking-tight text-neutral-900 mb-4">Chitsanupong Kongkaewkhao (Sand)</h3>
                             <p>
                                 I am a 4th-year Landscape Architecture student at Chulalongkorn University, driven by the challenge of transforming complex urban conditions into high-performance, resilient public spaces. My academic and design focus centers on urban development frameworks, brownfield redevelopment, and ecological landscape master planning.
                             </p>
@@ -125,19 +128,20 @@
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 pt-12 border-t border-neutral-200 text-xs">
-                        <div class="space-y-6">
+                    <!-- ขยายฟอนต์ส่วนล่าง (การศึกษา & โปรแกรม) -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 pt-12 md:pt-16 border-t border-neutral-200 text-sm">
+                        <div class="space-y-8">
                             <div>
-                                <h3 class="font-semibold uppercase tracking-wider text-neutral-900 mb-3">Higher Education</h3>
-                                <ul class="space-y-1 text-neutral-500">
+                                <h3 class="font-semibold text-base uppercase tracking-wider text-neutral-900 mb-4">Higher Education</h3>
+                                <ul class="space-y-2 text-neutral-500">
                                     <li class="font-medium text-neutral-800">Chulalongkorn University</li>
                                     <li>Faculty of Architecture</li>
                                     <li>Bachelor of Landscape Architecture (BLA), Year 4</li>
                                 </ul>
                             </div>
                             <div>
-                                <h3 class="font-semibold uppercase tracking-wider text-neutral-900 mb-3">Secondary Education</h3>
-                                <ul class="space-y-1 text-neutral-500">
+                                <h3 class="font-semibold text-base uppercase tracking-wider text-neutral-900 mb-4">Secondary Education</h3>
+                                <ul class="space-y-2 text-neutral-500">
                                     <li class="font-medium text-neutral-800">Bodindecha (Sing Singhaseni) School</li>
                                     <li>High School Curriculum</li>
                                 </ul>
@@ -145,37 +149,38 @@
                         </div>
                         
                         <div>
-                            <h3 class="font-semibold uppercase tracking-wider text-neutral-900 mb-6">Technical Competencies</h3>
+                            <h3 class="font-semibold text-base uppercase tracking-wider text-neutral-900 mb-6">Technical Competencies</h3>
                             
-                            <div class="grid grid-cols-2 gap-x-4 gap-y-6 text-neutral-600 font-medium text-xs">
-                                <div class="flex items-center gap-3">
-                                    <img src="images/qgis.svg" alt="QGIS Logo" class="w-6 h-6 block object-contain shrink-0" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
-                                    <div class="hidden w-6 h-6 bg-neutral-200 rounded flex items-center justify-center text-[10px] font-bold text-neutral-400 shrink-0">?</div>
+                            <!-- ขยายขนาดไอคอนและตัวหนังสือทักษะ -->
+                            <div class="grid grid-cols-2 gap-x-6 gap-y-8 text-neutral-600 font-medium text-sm">
+                                <div class="flex items-center gap-4">
+                                    <img src="images/qgis.svg" alt="QGIS Logo" class="w-8 h-8 block object-contain shrink-0" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
+                                    <div class="hidden w-8 h-8 bg-neutral-200 rounded flex items-center justify-center text-xs font-bold text-neutral-400 shrink-0">?</div>
                                     <span>QGIS</span>
                                 </div>
-                                <div class="flex items-center gap-3">
-                                    <img src="images/autocad.svg" alt="AutoCAD Logo" class="w-6 h-6 block object-contain shrink-0" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
-                                    <div class="hidden w-6 h-6 bg-neutral-200 rounded flex items-center justify-center text-[10px] font-bold text-neutral-400 shrink-0">?</div>
+                                <div class="flex items-center gap-4">
+                                    <img src="images/autocad.svg" alt="AutoCAD Logo" class="w-8 h-8 block object-contain shrink-0" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
+                                    <div class="hidden w-8 h-8 bg-neutral-200 rounded flex items-center justify-center text-xs font-bold text-neutral-400 shrink-0">?</div>
                                     <span>AutoCAD</span>
                                 </div>
-                                <div class="flex items-center gap-3">
-                                    <img src="images/rhino.svg" alt="Rhino Logo" class="w-6 h-6 block object-contain shrink-0" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
-                                    <div class="hidden w-6 h-6 bg-neutral-200 rounded flex items-center justify-center text-[10px] font-bold text-neutral-400 shrink-0">?</div>
+                                <div class="flex items-center gap-4">
+                                    <img src="images/rhino.svg" alt="Rhino Logo" class="w-8 h-8 block object-contain shrink-0" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
+                                    <div class="hidden w-8 h-8 bg-neutral-200 rounded flex items-center justify-center text-xs font-bold text-neutral-400 shrink-0">?</div>
                                     <span>Rhino 3D</span>
                                 </div>
-                                <div class="flex items-center gap-3">
-                                    <img src="images/d5render.svg" alt="D5 Render Logo" class="w-6 h-6 block object-contain shrink-0" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
-                                    <div class="hidden w-6 h-6 bg-neutral-200 rounded flex items-center justify-center text-[10px] font-bold text-neutral-400 shrink-0">?</div>
+                                <div class="flex items-center gap-4">
+                                    <img src="images/d5render.svg" alt="D5 Render Logo" class="w-8 h-8 block object-contain shrink-0" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
+                                    <div class="hidden w-8 h-8 bg-neutral-200 rounded flex items-center justify-center text-xs font-bold text-neutral-400 shrink-0">?</div>
                                     <span>D5 Render</span>
                                 </div>
-                                <div class="flex items-center gap-3">
-                                    <img src="images/photoshop.svg" alt="Photoshop Logo" class="w-6 h-6 block object-contain shrink-0" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
-                                    <div class="hidden w-6 h-6 bg-neutral-200 rounded flex items-center justify-center text-[10px] font-bold text-neutral-400 shrink-0">?</div>
+                                <div class="flex items-center gap-4">
+                                    <img src="images/photoshop.svg" alt="Photoshop Logo" class="w-8 h-8 block object-contain shrink-0" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
+                                    <div class="hidden w-8 h-8 bg-neutral-200 rounded flex items-center justify-center text-xs font-bold text-neutral-400 shrink-0">?</div>
                                     <span>Photoshop</span>
                                 </div>
-                                <div class="flex items-center gap-3">
-                                    <img src="images/illustrator.svg" alt="Illustrator Logo" class="w-6 h-6 block object-contain shrink-0" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
-                                    <div class="hidden w-6 h-6 bg-neutral-200 rounded flex items-center justify-center text-[10px] font-bold text-neutral-400 shrink-0">?</div>
+                                <div class="flex items-center gap-4">
+                                    <img src="images/illustrator.svg" alt="Illustrator Logo" class="w-8 h-8 block object-contain shrink-0" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
+                                    <div class="hidden w-8 h-8 bg-neutral-200 rounded flex items-center justify-center text-xs font-bold text-neutral-400 shrink-0">?</div>
                                     <span>Illustrator</span>
                                 </div>
                             </div>
