@@ -48,12 +48,12 @@
         }
     </style>
 </head>
-<body class="antialiased selection:bg-neutral-200">
+<body class="antialiased selection:bg-neutral-200 overflow-x-hidden">
 
     <div class="min-h-screen flex flex-col md:flex-row">
         
         <!-- Sidebar -->
-        <aside class="w-full md:w-[340px] md:fixed md:top-0 md:left-0 md:h-screen p-8 md:p-12 flex flex-col justify-between bg-white z-50">
+        <aside class="w-full md:w-[340px] md:fixed md:top-0 md:left-0 md:h-screen p-8 md:p-12 flex flex-col justify-between bg-white z-50 border-r border-neutral-50">
             <div class="space-y-12">
                 <div>
                     <button onclick="navigateTo('home')" class="text-left group focus:outline-none">
@@ -83,12 +83,15 @@
         </aside>
 
         <!-- Main Content -->
-        <main class="w-full md:ml-[340px] p-8 md:p-12 flex-1 relative max-w-full overflow-hidden">
+        <main class="w-full md:ml-[340px] p-8 md:p-12 flex-1 relative max-w-[100vw]">
             
             <section id="view-home" class="view-section fade-in flex items-center justify-center min-h-[70vh] md:min-h-[80vh]">
                 <div class="max-w-6xl w-full flex flex-col md:flex-row items-center md:items-end justify-center gap-10 md:gap-16 py-12">
                     <div class="w-full max-w-sm md:w-2/5 bg-neutral-50 rounded overflow-hidden relative group cursor-pointer border border-neutral-100 shrink-0 flex items-center justify-center" onclick="navigateTo('projects')">
                         <img src="images/featured-hero.jpg" alt="Featured Architectural Rendering" class="w-full h-auto object-contain block relative z-10 transition-transform duration-700 scale-100 group-hover:scale-[1.02]" onerror="this.style.display='none';">
+                        <div class="absolute inset-0 flex flex-col items-center justify-center bg-neutral-50 text-neutral-400 group-hover:bg-neutral-100 transition-colors duration-300 z-0 p-8 text-center">
+                             <span class="text-[10px] uppercase tracking-widest font-mono">images/featured-hero.jpg</span>
+                        </div>
                     </div>
                     <div class="w-full md:w-3/5 flex flex-col text-center md:text-right md:pb-4">
                         <h2 class="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-neutral-800 leading-relaxed md:leading-tight">
@@ -102,7 +105,61 @@
             <section id="view-about" class="view-section hidden">
                 <div class="max-w-5xl pt-4 md:pt-12 fade-in">
                     <h2 class="text-sm uppercase tracking-widest text-neutral-400 mb-8 md:mb-12">Profile</h2>
-                    <!-- ใส่เนื้อหา About ตามเดิม -->
+                    
+                    <div class="flex flex-col md:flex-row gap-10 md:gap-14 items-start mb-20">
+                        <div class="w-full md:w-[280px] shrink-0 aspect-[3/4] bg-neutral-50 rounded overflow-hidden relative border border-neutral-100 flex items-center justify-center">
+                            <img src="images/profile.jpg" alt="Chitsanupong Profile" class="absolute inset-0 w-full h-full object-cover transition-all duration-500 z-10" onerror="this.style.display='none';">
+                            <div class="text-center p-4 text-xs text-neutral-400 uppercase tracking-wider relative z-0">
+                                [ Profile Image ]<br>
+                                <span class="font-mono text-[10px] lowercase mt-1 block">images/profile.jpg</span>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-6 text-base md:text-lg text-neutral-600 leading-relaxed font-light flex-1">
+                            <h3 class="text-2xl md:text-3xl font-medium tracking-tight text-neutral-900 mb-4">Chitsanupong Kongkaewkhao (Sand)</h3>
+                            <p>
+                                I am a 4th-year Landscape Architecture student at Chulalongkorn University, driven by the challenge of transforming complex urban conditions into high-performance, resilient public spaces. My academic and design focus centers on urban development frameworks, brownfield redevelopment, and ecological landscape master planning.
+                            </p>
+                            <p>
+                                By integrating spatial design with analytical tools, I aim to base design decisions on empirical landscape performance data—mitigating microclimate issues and flooding risks before crafting human-scale spatial experiences.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 pt-12 md:pt-16 border-t border-neutral-100 text-sm">
+                        <div class="space-y-8">
+                            <div>
+                                <h3 class="font-semibold text-base uppercase tracking-wider text-neutral-900 mb-4">Higher Education</h3>
+                                <ul class="space-y-2 text-neutral-500">
+                                    <li class="font-medium text-neutral-800">Chulalongkorn University</li>
+                                    <li>Faculty of Architecture</li>
+                                    <li>Bachelor of Landscape Architecture (BLA), Year 4</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="font-semibold text-base uppercase tracking-wider text-neutral-900 mb-6">Technical Competencies</h3>
+                            <div class="grid grid-cols-2 gap-x-6 gap-y-8 text-neutral-600 font-medium text-sm">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-8 h-8 bg-neutral-100 flex items-center justify-center text-xs font-bold text-neutral-400 shrink-0">?</div>
+                                    <span>QGIS</span>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <div class="w-8 h-8 bg-neutral-100 flex items-center justify-center text-xs font-bold text-neutral-400 shrink-0">?</div>
+                                    <span>AutoCAD</span>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <div class="w-8 h-8 bg-neutral-100 flex items-center justify-center text-xs font-bold text-neutral-400 shrink-0">?</div>
+                                    <span>Rhino 3D</span>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <div class="w-8 h-8 bg-neutral-100 flex items-center justify-center text-xs font-bold text-neutral-400 shrink-0">?</div>
+                                    <span>D5 Render</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -111,6 +168,27 @@
                 <div class="max-w-6xl pt-4 md:pt-12 fade-in pb-20">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16">
                         
+                        <!-- List of Projects -->
+                        <div onclick="openProject('yourstream')" class="group cursor-pointer flex flex-col gap-4">
+                            <div class="w-full aspect-[4/3] bg-neutral-50 rounded-sm overflow-hidden relative border border-neutral-100">
+                                <img src="images/yourstream-thumb.jpg" alt="Your Stream Thumbnail" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-10" onerror="this.style.display='none';">
+                            </div>
+                            <div>
+                                <h3 class="text-base font-medium text-neutral-900 group-hover:text-neutral-500 transition-colors duration-200">YOUR STREAM</h3>
+                                <p class="text-[11px] text-neutral-400 uppercase tracking-widest mt-1">Ecological Integration</p>
+                            </div>
+                        </div>
+
+                        <div onclick="openProject('chiangmaizoo')" class="group cursor-pointer flex flex-col gap-4">
+                            <div class="w-full aspect-[4/3] bg-neutral-50 rounded-sm overflow-hidden relative border border-neutral-100">
+                                <img src="images/chiangmaizoo-thumb.jpg" alt="Chiangmai Zoo Thumbnail" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-10" onerror="this.style.display='none';">
+                            </div>
+                            <div>
+                                <h3 class="text-base font-medium text-neutral-900 group-hover:text-neutral-500 transition-colors duration-200">CHAINGMAI ZOO</h3>
+                                <p class="text-[11px] text-neutral-400 uppercase tracking-widest mt-1">Chiang Mai, Thailand</p>
+                            </div>
+                        </div>
+
                         <div onclick="openProject('nongbon')" class="group cursor-pointer flex flex-col gap-4">
                             <div class="w-full aspect-[4/3] bg-neutral-50 rounded-sm overflow-hidden relative border border-neutral-100">
                                 <img src="images/nongbon-thumb.jpg" alt="Nongbon Lake Thumbnail" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-10" onerror="this.style.display='none';">
@@ -121,7 +199,25 @@
                             </div>
                         </div>
 
-                        <!-- เพิ่ม Project อื่นๆ ลงมาตรงนี้ได้เลย (จะเลื่อนลงแนวตั้งอัตโนมัติ) -->
+                        <div onclick="openProject('fragile')" class="group cursor-pointer flex flex-col gap-4">
+                            <div class="w-full aspect-[4/3] bg-neutral-50 rounded-sm overflow-hidden relative border border-neutral-100">
+                                <img src="images/fragile-thumb.jpg" alt="Fragile Memorial Park Thumbnail" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-10" onerror="this.style.display='none';">
+                            </div>
+                            <div>
+                                <h3 class="text-base font-medium text-neutral-900 group-hover:text-neutral-500 transition-colors duration-200">FRAGILE (MEMORIAL PARK)</h3>
+                                <p class="text-[11px] text-neutral-400 uppercase tracking-widest mt-1">Memorial Landscape</p>
+                            </div>
+                        </div>
+
+                        <div onclick="openProject('houseno1')" class="group cursor-pointer flex flex-col gap-4">
+                            <div class="w-full aspect-[4/3] bg-neutral-50 rounded-sm overflow-hidden relative border border-neutral-100">
+                                <img src="images/houseno1-thumb.jpg" alt="House No 1 Thumbnail" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-10" onerror="this.style.display='none';">
+                            </div>
+                            <div>
+                                <h3 class="text-base font-medium text-neutral-900 group-hover:text-neutral-500 transition-colors duration-200">HOUSE NO 1</h3>
+                                <p class="text-[11px] text-neutral-400 uppercase tracking-widest mt-1">Residential Context</p>
+                            </div>
+                        </div>
 
                     </div>
                 </div>
@@ -131,14 +227,13 @@
             <section id="view-project-detail" class="view-section hidden w-full h-full flex flex-col fade-in">
                 
                 <!-- ปุ่มย้อนกลับ Fix ไว้ด้านซ้ายบน -->
-                <div class="pt-4 md:pt-8 mb-8 z-10 w-fit">
-                    <button onclick="navigateTo('projects')" class="inline-flex items-center text-xs uppercase tracking-widest text-neutral-400 hover:text-neutral-900 transition-colors duration-200 focus:outline-none">
+                <div class="pt-4 md:pt-8 mb-8 z-10 w-fit sticky left-0">
+                    <button onclick="navigateTo('projects')" class="inline-flex items-center text-xs uppercase tracking-widest text-neutral-400 hover:text-neutral-900 transition-colors duration-200 focus:outline-none bg-white/80 py-2 pr-4">
                         &larr; BACK TO SELECTED WORKS
                     </button>
                 </div>
 
                 <!-- 🌟 กล่องเลื่อนแนวนอน (Horizontal Container แบบไม่มี Scrollbar) 🌟 -->
-                <!-- กำหนดความสูง (เช่น h-[70vh]) เพื่อให้รูปขยายเต็มความสูงนี้ และเลื่อนซ้ายขวาได้ -->
                 <div id="project-horizontal-container" class="flex flex-row overflow-x-auto overflow-y-hidden no-scrollbar gap-12 md:gap-20 items-start w-full h-[65vh] md:h-[75vh] pb-4">
                     <!-- Javascript จะนำบล็อกข้อมูล รูป และข้อความ มาต่อกันในนี้ -->
                 </div>
@@ -146,7 +241,30 @@
             </section>
 
             <section id="view-contact" class="view-section hidden">
-                <!-- เนื้อหา Contact ตามเดิม -->
+                <div class="max-w-2xl pt-4 md:pt-12 fade-in">
+                    <h2 class="text-xs uppercase tracking-widest text-neutral-400 mb-12">Contact & Inquiries</h2>
+                    
+                    <div class="space-y-8 text-sm font-light text-neutral-600">
+                        <p>
+                            I am currently looking for an internship placement at a landscape architecture firm where I can contribute to forward-thinking ecological planning and refine my spatial design skills.
+                        </p>
+                        
+                        <div class="pt-8 border-t border-neutral-100 space-y-6 text-neutral-900 font-medium">
+                            <div>
+                                <span class="text-xs text-neutral-400 block font-normal uppercase tracking-wider mb-1">Email Connection</span>
+                                <a href="mailto:Ckongkaewkhao@gmail.com" class="text-base hover:text-neutral-500 underline underline-offset-4 transition-colors">Ckongkaewkhao@gmail.com</a>
+                            </div>
+                            <div>
+                                <span class="text-xs text-neutral-400 block font-normal uppercase tracking-wider mb-1">Mobile Hotline</span>
+                                <a href="tel:0982736816" class="text-base hover:text-neutral-500 transition-colors font-mono tracking-tight">098-273-6816</a>
+                            </div>
+                            <div>
+                                <span class="text-xs text-neutral-400 block font-normal uppercase tracking-wider mb-1">Instagram Network</span>
+                                <a href="https://instagram.com/__S_a_n_d._" target="_blank" class="text-base hover:text-neutral-500 underline underline-offset-4 transition-colors">@__S_a_n_d._</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
         </main>
@@ -154,51 +272,101 @@
 
     <!-- Lightbox Modal สำหรับขยายรูป -->
     <div id="lightbox-modal" onclick="closeLightbox()" class="fixed inset-0 bg-neutral-950/90 z-[100] hidden flex items-center justify-center p-4 md:p-12 cursor-zoom-out transition-opacity duration-300 opacity-0">
-        <img id="lightbox-img" src="" alt="Enlarged" class="max-w-full max-h-[85vh] object-contain rounded shadow-2xl" onclick="event.stopPropagation();">
-        <p id="lightbox-caption" class="absolute bottom-6 left-0 right-0 text-xs tracking-wider uppercase text-neutral-400 text-center font-light"></p>
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-neutral-400 hover:text-white text-xs uppercase tracking-widest font-mono z-[110] focus:outline-none">
+            [ Close &times; ]
+        </button>
+        <div class="max-w-5xl max-h-[85vh] flex flex-col justify-center items-center">
+            <img id="lightbox-img" src="" alt="Enlarged Visual Asset" class="max-w-full max-h-[80vh] object-contain rounded shadow-2xl cursor-default" onclick="event.stopPropagation();">
+            <p id="lightbox-caption" class="text-xs tracking-wider uppercase text-neutral-400 mt-4 text-center font-light"></p>
+        </div>
     </div>
 
     <script>
-        // 🌟 โครงสร้าง Data ใหม่: สามารถแทรกข้อความ สลับกับรูปภาพ ได้ตามต้องการ (ด้วย Array 'blocks') 🌟
+        // 🌟 โครงสร้าง Data ใหม่: นำข้อมูลของคุณกลับมาครบทุกโปรเจกต์ ในรูปแบบ blocks 🌟
         const projectData = {
+            yourstream: {
+                title: "Your Stream",
+                blocks: [
+                    {
+                        type: "info",
+                        location: "Location / Context",
+                        typology: "Ecological Integration",
+                        size: "XXX,XXX SQM",
+                        status: "Academic Project",
+                        desc: "A brief description of the Your Stream project. The design focuses on ecological integration and optimizing landscape performance across varying topographies."
+                    },
+                    { type: "image", url: "images/yourstream-1.jpg", caption: "01 / Perspective Render" },
+                    { type: "image", url: "images/yourstream-2.jpg", caption: "02 / Master Plan" },
+                    { type: "image", url: "images/yourstream-3.jpg", caption: "03 / Section Diagram" }
+                ]
+            },
+            chiangmaizoo: {
+                title: "CHAINGMAI ZOO",
+                blocks: [
+                    {
+                        type: "info",
+                        location: "Chiang Mai, Thailand",
+                        typology: "Large-Scale Regional Site Planning",
+                        size: "850,000 SQM",
+                        status: "Studio Spatial Planning Module",
+                        desc: "Addressing complex topography and regional recreational demands. The masterplan redefines the zoo's experiential circulation to respect the natural mountain slope."
+                    },
+                    { type: "image", url: "images/chiangmaizoo-1.jpg", caption: "01 / High-Altitude Overlook Render View" },
+                    { type: "image", url: "images/chiangmaizoo-2.jpg", caption: "02 / Macro Eco-Zoning Spatial Framework" }
+                ]
+            },
             nongbon: {
                 title: "TARASUPHAWAT (NONGBON LAKE)",
                 blocks: [
-                    // Block 1: ส่วนหัวของ Project (ข้อความหลัก)
                     {
                         type: "info",
                         location: "Bangkok, Thailand",
                         typology: "Public Park & Water Management",
-                        size: "644 RAI",
+                        size: "644 RAI (1,030,400 SQ.M)",
                         status: "Academic Project Y3",
-                        desc: "Nongbon Lake Sports Center Park stands as one of Bangkok's key \"green lungs.\" Nestled in Soi Chaloem Phra Kiat R.9 Soi 43, Prawet District, this park is the ultimate hub for nature and outdoor fitness. Covering an expansive 644 rai, its vast landscape supports a diverse range of activities, with a special emphasis on water sports and outdoor recreation."
+                        desc: "Nongbon Lake Sports Center Park stands as one of Bangkok's key \"green lungs.\" Nestled in Soi Chaloem Phra Kiat R.9 Soi 43, Prawet District, this park is the ultimate hub for nature and outdoor fitness. Covering an expansive 644 rai, its vast landscape supports a diverse range of activities, with a special emphasis on water sports and outdoor recreation. Dominated by a large body of water, Nongbon Lake serves a dual purpose as a vital reservoir and an open-air sports arena."
                     },
-                    // Block 2: รูปภาพ
-                    {
-                        type: "image",
-                        url: "images/nongbon-1.jpg",
-                        caption: "01 / PARK PERSPECTIVE VIEW"
-                    },
-                    // Block 3: รูปภาพ
-                    {
-                        type: "image",
-                        url: "images/nongbon-2.jpg",
-                        caption: "02 / WATER CIRCULATION MASTER PLAN"
-                    },
-                    // Block 4: แทรกข้อความอธิบายระหว่างรูป!
+                    { type: "image", url: "images/nongbon-1.jpg", caption: "01 / Park Perspective Views" },
+                    { type: "image", url: "images/nongbon-2.jpg", caption: "01 / Park Perspective Views" },
+                    // ตัวอย่างการแทรกกล่องข้อความ (Text) คั่นระหว่างรูป! 
                     {
                         type: "text",
                         content: "The water circulation system is designed to naturally filter run-off from the surrounding urban environment before it enters the main reservoir. We used a series of retention ponds and wetland filtration edges to ensure water quality remains high for recreational water sports."
                     },
-                    // Block 5: รูปภาพต่อ
+                    { type: "image", url: "images/nongbon-3.jpg", caption: "02 / Water Circulation & Diagrams" },
+                    { type: "image", url: "images/nongbon-4.jpg", caption: "02 / Water Circulation & Diagrams" }
+                ]
+            },
+            fragile: {
+                title: "FRAGILE (MEMORIAL PARK)",
+                blocks: [
                     {
-                        type: "image",
-                        url: "images/nongbon-3.jpg",
-                        caption: "03 / SECTION AND FILTRATION DIAGRAM"
-                    }
+                        type: "info",
+                        location: "Location / Context",
+                        typology: "Memorial Landscape",
+                        size: "XXX,XXX SQM",
+                        status: "Academic Project",
+                        desc: "A brief description of the Fragile Memorial Park project. The project explores memory, landscape sensitivity, and emotional spatial sequencing."
+                    },
+                    { type: "image", url: "images/fragile-1.jpg", caption: "01 / Memorial Space Render" },
+                    { type: "image", url: "images/fragile-2.jpg", caption: "02 / Sequencing Layout" }
+                ]
+            },
+            houseno1: {
+                title: "HOUSE NO 1",
+                blocks: [
+                    {
+                        type: "info",
+                        location: "Residential Context",
+                        typology: "Residential Landscape Design",
+                        size: "XXX SQM",
+                        status: "Academic Project",
+                        desc: "Integrating landscape architecture with residential design to enhance living quality, focusing on indoor-outdoor transitions."
+                    },
+                    { type: "image", url: "images/houseno1-1.jpg", caption: "01 / Courtyard View" },
+                    { type: "image", url: "images/houseno1-2.jpg", caption: "02 / Planting Plan" }
                 ]
             }
-            // สามารถเพิ่มโปรเจกต์อื่นๆ ต่อได้โดยใช้โครงสร้าง blocks แบบเดียวกัน
         };
 
         function navigateTo(viewId) {
@@ -228,7 +396,7 @@
             });
         }
 
-        // ฟังก์ชันสร้างหน้า Project Detail แนวนอน
+        // ฟังก์ชันสร้างหน้า Project Detail แนวนอน (รองรับการสลับ รูป-ข้อความ)
         function openProject(projectId) {
             const data = projectData[projectId];
             if(!data) return;
@@ -248,9 +416,9 @@
                                     <p class="text-xs text-neutral-400 uppercase tracking-widest mt-2">${block.location}</p>
                                 </div>
                                 <div class="border-t border-neutral-100 pt-6 space-y-4 text-[11px] uppercase tracking-wider">
-                                    <div class="flex justify-between"><span class="text-neutral-400">Typology</span><span class="text-neutral-900">${block.typology}</span></div>
-                                    <div class="flex justify-between"><span class="text-neutral-400">Scale</span><span class="text-neutral-900">${block.size}</span></div>
-                                    <div class="flex justify-between"><span class="text-neutral-400">Status</span><span class="text-neutral-900">${block.status}</span></div>
+                                    <div class="flex justify-between"><span class="text-neutral-400">Typology</span><span class="text-neutral-900 text-right w-1/2 break-words leading-tight">${block.typology}</span></div>
+                                    <div class="flex justify-between"><span class="text-neutral-400">Scale</span><span class="text-neutral-900 text-right w-1/2 break-words leading-tight">${block.size}</span></div>
+                                    <div class="flex justify-between"><span class="text-neutral-400">Status</span><span class="text-neutral-900 text-right w-1/2 break-words leading-tight">${block.status}</span></div>
                                 </div>
                                 <p class="text-sm font-light text-neutral-600 leading-relaxed">${block.desc}</p>
                             </div>
@@ -275,7 +443,7 @@
                                 <div class="h-full relative border border-neutral-100 bg-neutral-50 overflow-hidden">
                                     <img src="${block.url}" alt="${block.caption}" class="h-full w-auto object-cover max-w-[85vw] transition-opacity duration-300 group-hover:opacity-80" onerror="this.style.display='none';">
                                 </div>
-                                <p class="text-[10px] uppercase tracking-widest text-neutral-400 mt-3 font-light pl-1">${block.caption}</p>
+                                <p class="text-[10px] uppercase tracking-widest text-neutral-400 mt-3 font-light pl-1 whitespace-normal max-w-[85vw] break-words">${block.caption}</p>
                             </div>
                         `;
                     }
@@ -304,6 +472,8 @@
                 modal.classList.remove('opacity-0');
                 modal.classList.add('opacity-100');
             }, 10);
+            
+            document.body.style.overflow = 'hidden';
         }
 
         function closeLightbox() {
@@ -313,6 +483,7 @@
             setTimeout(() => {
                 modal.classList.remove('flex');
                 modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
             }, 300);
         }
     </script>
