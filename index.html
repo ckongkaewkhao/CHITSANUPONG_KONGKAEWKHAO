@@ -282,17 +282,14 @@
                 </div>
             </section>
 
-            <!-- 🛠️ ส่วนที่แก้ไข: ปรับปรุงโครงสร้างของหน้าเนื้อหาโปรเจกต์ (Project Detail) -->
             <section id="view-project-detail" class="view-section hidden">
                 <div class="max-w-5xl pt-4 md:pt-12 fade-in">
                     <button onclick="navigateTo('projects')" class="mb-12 inline-flex items-center text-xs uppercase tracking-widest text-neutral-400 hover:text-neutral-900 transition-colors duration-200 focus:outline-none">
                         &larr; Back to Selected Works
                     </button>
 
-                    <!-- ปรับคลาสตรงนี้เป็น flex-col เสมอ เพื่อบังคับให้เนื้อหาข้อความอยู่ด้านบน และรูปภาพอยู่ด้านล่าง -->
                     <div class="flex flex-col gap-16">
                         
-                        <!-- 1. ส่วนข้อมูลข้อความอธิบายโปรเจกต์ (แสดงอยู่ด้านบน ขยายความกว้างให้อ่านง่ายพอดีสายตา) -->
                         <div class="w-full max-w-3xl space-y-10">
                             <div>
                                 <h2 id="project-detail-title" class="text-2xl md:text-3xl font-medium tracking-tight text-neutral-900 leading-tight">Project Title</h2>
@@ -322,8 +319,8 @@
                             </div>
                         </div>
 
-                        <!-- 2. ส่วนแสดงรูปภาพผลงาน (ถูกปัดลงมาอยู่ด้านล่าง และสามารถขยายได้เต็มความกว้างของหน้าเว็บอย่างอิสระ) -->
-                        <div class="w-full space-y-12" id="project-detail-image-stack">
+                        <!-- ส่วนแสดงบล็อกของกลุ่มรูปภาพและคำอธิบายหลังปรับปรุงใหม่ -->
+                        <div class="w-full space-y-16" id="project-detail-image-stack">
                         </div>
                         
                     </div>
@@ -371,6 +368,7 @@
     </div>
 
     <script>
+        /* 🛠️ ปรับเปลี่ยนฐานข้อมูลเป็นระบบ contentBlocks เพื่อจัดกลุ่มรูปภาพได้อย่างอิสระ */
         const projectData = {
             yourstream: {
                 title: "Your Stream",
@@ -378,13 +376,12 @@
                 type: "Ecological Integration",
                 size: "XXX,XXX SQM",
                 status: "Academic Project",
-                desc: "A brief description of the Your Stream project. Detail your conceptual approach, ecological focus, and the overall design strategy here.",
-                images: [
-                    "images/yourstream-1.jpg",
-                    "images/yourstream-2.jpg",
-                    "images/yourstream-3.jpg"
-                ],
-                labels: ["01 / Perspective Render", "02 / Master Plan", "03 / Section Diagram"]
+                desc: "A brief description of the Your Stream project.",
+                contentBlocks: [
+                    { images: ["images/yourstream-1.jpg"], label: "01 / Perspective Render" },
+                    { images: ["images/yourstream-2.jpg"], label: "02 / Master Plan" },
+                    { images: ["images/yourstream-3.jpg"], label: "03 / Section Diagram" }
+                ]
             },
             chiangmaizoo: {
                 title: "CHAINGMAI ZOO",
@@ -392,13 +389,13 @@
                 type: "Large-Scale Regional Site Planning",
                 size: "850,000 SQM",
                 status: "Studio Spatial Planning Module",
-                desc: "Addressing complex topography and regional recreational demands, this large-scale master plan completely shifts the spatial structure of the Chiang Mai Zoo down its mountain slope terrain. The design structure maps out microclimate pockets to establish context-appropriate animal welfare zoning models while planning experiential public circulation paths that lower terrain steepness stress.",
-                images: [
-                    "images/chiangmaizoo-1.jpg",
-                    "images/chiangmaizoo-2.jpg"
-                ],
-                labels: ["01 / High-Altitude Overlook Render View", "02 / Macro Eco-Zoning Spatial Framework"]
+                desc: "Addressing complex topography and regional recreational demands...",
+                contentBlocks: [
+                    { images: ["images/chiangmaizoo-1.jpg"], label: "01 / High-Altitude Overlook Render View" },
+                    { images: ["images/chiangmaizoo-2.jpg"], label: "02 / Macro Eco-Zoning Spatial Framework" }
+                ]
             },
+            // ⭐ นี่คือส่วนของโครงการ Nongbon Lake ที่ปรับแต่งให้แสดง 2 รูปติดกันแล้วมีคำอธิบายทีเดียวด้านล่างครับ ⭐
             nongbon: {
                 title: "TARASUPHAWAT (NONGBON LAKE)",
                 location: "Bangkok, Thailand",
@@ -406,11 +403,14 @@
                 size: "644 RAI (1030400 sq.m)",
                 status: "Academic Project Y3",
                 desc: "Nongbon Lake Sports Center Park stands as one of Bangkok's key \"green lungs.\" Nestled in Soi Chaloem Phra Kiat R.9 Soi 43, Prawet District, this park is the ultimate hub for nature and outdoor fitness. Covering an expansive 644 rai, its vast landscape supports a diverse range of activities, with a special emphasis on water sports and outdoor recreation. Dominated by a large body of water, Nongbon Lake serves a dual purpose as a vital reservoir and an open-air sports arena. The park is easily accessible via the main entrance on Chaloem Phra Kiat R.9 Road and offers ample parking space for visitors driving personal vehicles.",
-                images: [
-                    "images/nongbon-1.jpg",
-                    "images/nongbon-2.jpg"
-                ],
-                labels: ["01 / Park Perspective", "02 / Water Circulation Plan"]
+                contentBlocks: [
+                    { 
+                        // ใส่รูป 2 รูปเข้าไปในบล็อกเดียวกันตรงนี้ได้เลยครับ! มันจะแสดงติดกันในแนวตั้ง
+                        images: ["images/nongbon-1.jpg", "images/nongbon-2.jpg"], 
+                        // นี่คือคำอธิบายรวมที่จะแสดงอยู่ใต้รูปทั้งสองรูปนี้ครับ
+                        label: "01 & 02 / Park Perspective View and Water Circulation Master Plan" 
+                    }
+                ]
             },
             fragile: {
                 title: "FRAGILE (MEMORIAL PARK)",
@@ -418,12 +418,11 @@
                 type: "Memorial Landscape",
                 size: "XXX,XXX SQM",
                 status: "Academic Project",
-                desc: "A brief description of the Fragile Memorial Park project. Discuss the emotional journey, sensitivity to the site context, and material selection.",
-                images: [
-                    "images/fragile-1.jpg",
-                    "images/fragile-2.jpg"
-                ],
-                labels: ["01 / Memorial Space Render", "02 / Sequencing Layout"]
+                desc: "A brief description of the Fragile Memorial Park project.",
+                contentBlocks: [
+                    { images: ["images/fragile-1.jpg"], label: "01 / Memorial Space Render" },
+                    { images: ["images/fragile-2.jpg"], label: "02 / Sequencing Layout" }
+                ]
             },
             houseno1: {
                 title: "HOUSE NO 1",
@@ -431,12 +430,11 @@
                 type: "Residential Landscape Design",
                 size: "XXX SQM",
                 status: "Academic Project",
-                desc: "A brief description of House No 1. Highlight the connection between indoor and outdoor spaces, planting strategies, and private landscape design.",
-                images: [
-                    "images/houseno1-1.jpg",
-                    "images/houseno1-2.jpg"
-                ],
-                labels: ["01 / Courtyard View", "02 / Planting Plan"]
+                desc: "A brief description of House No 1.",
+                contentBlocks: [
+                    { images: ["images/houseno1-1.jpg"], label: "01 / Courtyard View" },
+                    { images: ["images/houseno1-2.jpg"], label: "02 / Planting Plan" }
+                ]
             }
         };
 
@@ -466,6 +464,7 @@
             });
         }
 
+        /* 🛠️ แก้ไขฟังก์ชันเรนเดอร์รูปภาพให้รองรับระบบ Group บล็อกรูปภาพใหม่ */
         function openProject(projectId) {
             const data = projectData[projectId];
             if(!data) return;
@@ -480,22 +479,33 @@
             const stackContainer = document.getElementById('project-detail-image-stack');
             stackContainer.innerHTML = '';
             
-            data.images.forEach((imgSrc, index) => {
-                const labelText = data.labels && data.labels[index] ? data.labels[index] : `Media Asset 0${index + 1}`;
-                const block = document.createElement('div');
-                block.className = 'space-y-2';
-                
-                block.innerHTML = `
-                    <div onclick="openLightbox('${imgSrc}', '${labelText}')" class="w-full bg-neutral-50 rounded overflow-hidden border border-neutral-200 relative cursor-zoom-in group">
-                        <img src="${imgSrc}" alt="${labelText}" class="w-full h-auto object-contain block relative z-10 transition-transform duration-300 group-hover:scale-[1.005]" onerror="this.style.display='none';">
-                        <div class="absolute inset-0 flex flex-col items-center justify-center p-12 text-center text-xs text-neutral-400 uppercase tracking-wider font-mono bg-neutral-50 z-0">
-                            [ ${imgSrc} ]
-                        </div>
-                    </div>
-                    <p class="text-[10px] uppercase tracking-widest text-neutral-400 font-light pl-1">${labelText}</p>
-                `;
-                stackContainer.appendChild(block);
-            });
+            if(data.contentBlocks) {
+                data.contentBlocks.forEach(blockData => {
+                    const blockWrapper = document.createElement('div');
+                    blockWrapper.className = 'space-y-4 border-b border-neutral-100 pb-8 last:border-0 last:pb-0';
+                    
+                    // ส่วนสร้างรูปภาพภายในบล็อก (รองรับหลายรูปวางเรียงกัน)
+                    let imagesHTML = '<div class="space-y-4">';
+                    blockData.images.forEach(imgSrc => {
+                        imagesHTML += `
+                            <div onclick="openLightbox('${imgSrc}', '${blockData.label}')" class="w-full bg-neutral-50 rounded overflow-hidden border border-neutral-200 relative cursor-zoom-in group">
+                                <img src="${imgSrc}" alt="${blockData.label}" class="w-full h-auto object-contain block relative z-10 transition-transform duration-300 group-hover:scale-[1.003]" onerror="this.style.display='none';">
+                                <div class="absolute inset-0 flex flex-col items-center justify-center p-12 text-center text-xs text-neutral-400 uppercase tracking-wider font-mono bg-neutral-50 z-0">
+                                    [ ${imgSrc} ]
+                                </div>
+                            </div>
+                        `;
+                    });
+                    imagesHTML += '</div>';
+                    
+                    // รวมรูปภาพและคำอธิบายให้อยู่ท้ายสุดของกลุ่มรูปภาพนั้นๆ
+                    blockWrapper.innerHTML = `
+                        ${imagesHTML}
+                        <p class="text-[10px] uppercase tracking-widest text-neutral-400 font-light pl-1 pt-1">${blockData.label}</p>
+                    `;
+                    stackContainer.appendChild(blockWrapper);
+                });
+            }
 
             navigateTo('project-detail');
         }
