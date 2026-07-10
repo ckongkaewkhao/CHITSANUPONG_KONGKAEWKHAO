@@ -80,7 +80,6 @@
             <section id="view-home" class="view-section fade-in flex items-center justify-center min-h-[70vh] md:min-h-[80vh]">
                 <div class="max-w-6xl w-full flex flex-col md:flex-row items-center md:items-end justify-center gap-10 md:gap-16 py-12">
                     
-                    <!-- แก้ไขจุดที่ 1: ปรับโครงสร้างรูปหน้าแรกให้แสดงสัดส่วนจริงแนวตั้ง ไม่ครอปแนวนอน -->
                     <div class="w-full max-w-sm md:w-2/5 bg-neutral-50 rounded overflow-hidden relative group cursor-pointer border border-neutral-200 shrink-0 shadow-sm flex items-center justify-center" onclick="navigateTo('projects')">
                         <img src="images/featured-hero.jpg" alt="Featured Architectural Rendering" class="w-full h-auto object-contain block relative z-10 transition-transform duration-750 scale-100 group-hover:scale-[1.01]" onerror="this.style.display='none';">
                         <div class="absolute inset-0 flex flex-col items-center justify-center bg-neutral-50 text-neutral-400 group-hover:bg-neutral-100 transition-colors duration-300 z-0 p-8 text-center">
@@ -225,7 +224,6 @@
                             </div>
                         </div>
 
-                        <!-- แก้ไขจุดที่ 2: เปลี่ยนข้อมูลการแสดงผลหน้ารวมการ์ดโปรเจกต์ของ Nongbon Lake ให้เป็นชื่อใหม่และคำอธิบายใหม่สั้นๆ -->
                         <div onclick="openProject('nongbon')" class="group flex flex-col md:flex-row gap-8 md:gap-12 cursor-pointer pb-12 border-b border-neutral-100">
                             <div class="w-full md:w-1/3 flex flex-col justify-between py-2">
                                 <div>
@@ -284,20 +282,24 @@
                 </div>
             </section>
 
+            <!-- 🛠️ ส่วนที่แก้ไข: ปรับปรุงโครงสร้างของหน้าเนื้อหาโปรเจกต์ (Project Detail) -->
             <section id="view-project-detail" class="view-section hidden">
-                <div class="max-w-7xl pt-4 md:pt-12 fade-in">
+                <div class="max-w-5xl pt-4 md:pt-12 fade-in">
                     <button onclick="navigateTo('projects')" class="mb-12 inline-flex items-center text-xs uppercase tracking-widest text-neutral-400 hover:text-neutral-900 transition-colors duration-200 focus:outline-none">
                         &larr; Back to Selected Works
                     </button>
 
-                    <div class="flex flex-col lg:flex-row gap-12 lg:gap-16">
-                        <div class="w-full lg:w-1/3 lg:sticky lg:top-12 h-fit space-y-10">
+                    <!-- ปรับคลาสตรงนี้เป็น flex-col เสมอ เพื่อบังคับให้เนื้อหาข้อความอยู่ด้านบน และรูปภาพอยู่ด้านล่าง -->
+                    <div class="flex flex-col gap-16">
+                        
+                        <!-- 1. ส่วนข้อมูลข้อความอธิบายโปรเจกต์ (แสดงอยู่ด้านบน ขยายความกว้างให้อ่านง่ายพอดีสายตา) -->
+                        <div class="w-full max-w-3xl space-y-10">
                             <div>
-                                <h2 id="project-detail-title" class="text-2xl font-medium tracking-tight text-neutral-900">Project Title</h2>
-                                <p id="project-detail-location" class="text-xs text-neutral-400 uppercase tracking-widest mt-1">Location, Region</p>
+                                <h2 id="project-detail-title" class="text-2xl md:text-3xl font-medium tracking-tight text-neutral-900 leading-tight">Project Title</h2>
+                                <p id="project-detail-location" class="text-xs text-neutral-400 uppercase tracking-widest mt-2">Location, Region</p>
                             </div>
 
-                            <div class="border-t border-neutral-200 pt-6 space-y-4 text-xs uppercase tracking-wider">
+                            <div class="border-t border-neutral-200 pt-6 space-y-4 text-xs uppercase tracking-wider max-w-xl">
                                 <div class="flex justify-between py-1 border-b border-neutral-100">
                                     <span class="text-neutral-400 font-light">Typology</span>
                                     <span id="project-detail-type" class="text-neutral-800 font-medium text-right">-</span>
@@ -320,8 +322,10 @@
                             </div>
                         </div>
 
-                        <div class="w-full lg:w-2/3 space-y-8" id="project-detail-image-stack">
+                        <!-- 2. ส่วนแสดงรูปภาพผลงาน (ถูกปัดลงมาอยู่ด้านล่าง และสามารถขยายได้เต็มความกว้างของหน้าเว็บอย่างอิสระ) -->
+                        <div class="w-full space-y-12" id="project-detail-image-stack">
                         </div>
+                        
                     </div>
                 </div>
             </section>
@@ -395,7 +399,6 @@
                 ],
                 labels: ["01 / High-Altitude Overlook Render View", "02 / Macro Eco-Zoning Spatial Framework"]
             },
-            // แก้ไขจุดที่ 3: อัปเดตข้อมูลของฐานข้อมูลตัวแปร nongbon ให้ตรงตามที่คุณกำหนด
             nongbon: {
                 title: "TARASUPHAWAT (NONGBON LAKE)",
                 location: "Bangkok, Thailand",
