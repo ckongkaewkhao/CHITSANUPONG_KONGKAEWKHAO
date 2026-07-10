@@ -50,7 +50,6 @@
             <div class="space-y-12">
                 <div>
                     <button onclick="navigateTo('home')" class="text-left group focus:outline-none">
-                        <!-- เปลี่ยนสีชื่อเป็นสีส้ม และเพิ่มขนาดตัวหนังสือ -->
                         <h1 class="text-lg md:text-xl font-bold tracking-tight uppercase text-orange-500 group-hover:text-orange-400 transition-colors duration-200">
                             Chitsanupong Kongkaewkhao
                         </h1>
@@ -58,7 +57,6 @@
                     </button>
                 </div>
 
-                <!-- เพิ่มขนาดตัวหนังสือของเมนูเป็น text-base -->
                 <nav class="flex flex-col space-y-4 text-base">
                     <button onclick="navigateTo('about')" id="nav-about" class="text-left text-neutral-400 hover:text-neutral-900 transition-colors duration-200 uppercase tracking-wider font-medium focus:outline-none">
                         About
@@ -82,9 +80,10 @@
             <section id="view-home" class="view-section fade-in flex items-center justify-center min-h-[70vh] md:min-h-[80vh]">
                 <div class="max-w-6xl w-full flex flex-col md:flex-row items-center md:items-end justify-center gap-10 md:gap-16 py-12">
                     
-                    <div class="w-full max-w-sm md:w-2/5 aspect-[3/4] bg-neutral-100 rounded overflow-hidden relative group cursor-pointer border border-neutral-200 shrink-0 shadow-sm" onclick="navigateTo('projects')">
-                        <img src="images/featured-hero.jpg" alt="Featured Architectural Rendering" class="absolute inset-0 w-full h-full object-cover transition-all duration-750 scale-100 group-hover:scale-[1.03] z-10" onerror="this.style.display='none';">
-                        <div class="absolute inset-0 flex flex-col items-center justify-center bg-neutral-50 text-neutral-400 group-hover:bg-neutral-100 transition-colors duration-300 z-0">
+                    <!-- แก้ไขจุดที่ 1: ปรับโครงสร้างรูปหน้าแรกให้แสดงสัดส่วนจริงแนวตั้ง ไม่ครอปแนวนอน -->
+                    <div class="w-full max-w-sm md:w-2/5 bg-neutral-50 rounded overflow-hidden relative group cursor-pointer border border-neutral-200 shrink-0 shadow-sm flex items-center justify-center" onclick="navigateTo('projects')">
+                        <img src="images/featured-hero.jpg" alt="Featured Architectural Rendering" class="w-full h-auto object-contain block relative z-10 transition-transform duration-750 scale-100 group-hover:scale-[1.01]" onerror="this.style.display='none';">
+                        <div class="absolute inset-0 flex flex-col items-center justify-center bg-neutral-50 text-neutral-400 group-hover:bg-neutral-100 transition-colors duration-300 z-0 p-8 text-center">
                              <svg class="w-8 h-8 mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                              <span class="text-[10px] uppercase tracking-widest font-mono">images/featured-hero.jpg</span>
                         </div>
@@ -101,12 +100,10 @@
             </section>
 
             <section id="view-about" class="view-section hidden">
-                <!-- ขยายสัดส่วนพื้นที่เนื้อหาจาก max-w-3xl เป็น max-w-5xl -->
                 <div class="max-w-5xl pt-4 md:pt-12 fade-in">
                     <h2 class="text-sm uppercase tracking-widest text-neutral-400 mb-8 md:mb-12">Profile</h2>
                     
                     <div class="flex flex-col md:flex-row gap-10 md:gap-14 items-start mb-20">
-                        <!-- ขยายขนาดรูปโปรไฟล์ให้รับกับตัวหนังสือที่ใหญ่ขึ้น -->
                         <div class="w-full md:w-[280px] shrink-0 aspect-[3/4] bg-neutral-100 rounded overflow-hidden relative border border-neutral-200 flex items-center justify-center">
                             <img src="images/profile.jpg" alt="Chitsanupong Profile" class="absolute inset-0 w-full h-full object-cover transition-all duration-500 z-10" onerror="this.style.display='none';">
                             <div class="text-center p-4 text-xs text-neutral-400 uppercase tracking-wider relative z-0">
@@ -116,7 +113,6 @@
                             </div>
                         </div>
                         
-                        <!-- ขยายขนาดตัวหนังสือเนื้อหาเป็น text-base md:text-lg -->
                         <div class="space-y-6 text-base md:text-lg text-neutral-600 leading-relaxed font-light flex-1">
                             <h3 class="text-2xl md:text-3xl font-medium tracking-tight text-neutral-900 mb-4">Chitsanupong Kongkaewkhao (Sand)</h3>
                             <p>
@@ -128,7 +124,6 @@
                         </div>
                     </div>
 
-                    <!-- ขยายฟอนต์ส่วนล่าง (การศึกษา & โปรแกรม) -->
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 pt-12 md:pt-16 border-t border-neutral-200 text-sm">
                         <div class="space-y-8">
                             <div>
@@ -151,7 +146,6 @@
                         <div>
                             <h3 class="font-semibold text-base uppercase tracking-wider text-neutral-900 mb-6">Technical Competencies</h3>
                             
-                            <!-- ขยายขนาดไอคอนและตัวหนังสือทักษะ -->
                             <div class="grid grid-cols-2 gap-x-6 gap-y-8 text-neutral-600 font-medium text-sm">
                                 <div class="flex items-center gap-4">
                                     <img src="images/qgis.svg" alt="QGIS Logo" class="w-8 h-8 block object-contain shrink-0" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
@@ -231,14 +225,15 @@
                             </div>
                         </div>
 
+                        <!-- แก้ไขจุดที่ 2: เปลี่ยนข้อมูลการแสดงผลหน้ารวมการ์ดโปรเจกต์ของ Nongbon Lake ให้เป็นชื่อใหม่และคำอธิบายใหม่สั้นๆ -->
                         <div onclick="openProject('nongbon')" class="group flex flex-col md:flex-row gap-8 md:gap-12 cursor-pointer pb-12 border-b border-neutral-100">
                             <div class="w-full md:w-1/3 flex flex-col justify-between py-2">
                                 <div>
-                                    <h3 class="text-lg font-medium text-neutral-900 group-hover:text-neutral-500 transition-colors duration-200">NONGBON LAKE</h3>
+                                    <h3 class="text-lg font-medium text-neutral-900 group-hover:text-neutral-500 transition-colors duration-200">TARASUPHAWAT (NONGBON LAKE)</h3>
                                     <p class="text-xs text-neutral-400 uppercase tracking-widest mt-1">Bangkok, Thailand</p>
                                 </div>
                                 <div class="mt-4 md:mt-0 text-xs text-neutral-500 font-light leading-relaxed line-clamp-3">
-                                    A brief description of the Nongbon Lake project. Focusing on water management, public park integration, and recreational spaces.
+                                    Nongbon Lake Sports Center Park stands as one of Bangkok's key "green lungs." Nestled in Soi Chaloem Phra Kiat R.9 Soi 43, Prawet District, this park is the ultimate hub for nature and outdoor fitness.
                                 </div>
                             </div>
                             <div class="w-full md:w-2/3 aspect-[16/10] bg-neutral-100 rounded overflow-hidden relative border border-neutral-200">
@@ -400,13 +395,14 @@
                 ],
                 labels: ["01 / High-Altitude Overlook Render View", "02 / Macro Eco-Zoning Spatial Framework"]
             },
+            // แก้ไขจุดที่ 3: อัปเดตข้อมูลของฐานข้อมูลตัวแปร nongbon ให้ตรงตามที่คุณกำหนด
             nongbon: {
-                title: "NONGBON LAKE",
+                title: "TARASUPHAWAT (NONGBON LAKE)",
                 location: "Bangkok, Thailand",
                 type: "Public Park & Water Management",
-                size: "XXX,XXX SQM",
-                status: "Academic Project",
-                desc: "A brief description of the Nongbon Lake project. Explain how you integrated public recreational areas with effective water management systems.",
+                size: "644 RAI (1030400 sq.m)",
+                status: "Academic Project Y3",
+                desc: "Nongbon Lake Sports Center Park stands as one of Bangkok's key \"green lungs.\" Nestled in Soi Chaloem Phra Kiat R.9 Soi 43, Prawet District, this park is the ultimate hub for nature and outdoor fitness. Covering an expansive 644 rai, its vast landscape supports a diverse range of activities, with a special emphasis on water sports and outdoor recreation. Dominated by a large body of water, Nongbon Lake serves a dual purpose as a vital reservoir and an open-air sports arena. The park is easily accessible via the main entrance on Chaloem Phra Kiat R.9 Road and offers ample parking space for visitors driving personal vehicles.",
                 images: [
                     "images/nongbon-1.jpg",
                     "images/nongbon-2.jpg"
@@ -486,7 +482,6 @@
                 const block = document.createElement('div');
                 block.className = 'space-y-2';
                 
-                // แก้ไข: ปรับโครงสร้างรูปภาพให้แสดงสัดส่วนจริง (w-full h-auto) และย่ออัตโนมัติ พร้อมเพิ่ม cursor-zoom-in กับฟังก์ชันคลิกดูรูปใหญ่ (openLightbox)
                 block.innerHTML = `
                     <div onclick="openLightbox('${imgSrc}', '${labelText}')" class="w-full bg-neutral-50 rounded overflow-hidden border border-neutral-200 relative cursor-zoom-in group">
                         <img src="${imgSrc}" alt="${labelText}" class="w-full h-auto object-contain block relative z-10 transition-transform duration-300 group-hover:scale-[1.005]" onerror="this.style.display='none';">
@@ -502,7 +497,6 @@
             navigateTo('project-detail');
         }
 
-        /* ฟังก์ชันเสริมสำหรับเปิดดูรูปภาพขนาดใหญ่ (Lightbox) */
         function openLightbox(imgSrc, captionText) {
             const modal = document.getElementById('lightbox-modal');
             const lightboxImg = document.getElementById('lightbox-img');
@@ -514,23 +508,19 @@
             modal.classList.remove('hidden');
             modal.classList.add('flex');
             
-            // ใช้ setTimeout เพื่อให้เกิดเอฟเฟกต์ Fade-in นุ่มๆ
             setTimeout(() => {
                 modal.classList.remove('opacity-0');
                 modal.classList.add('opacity-100');
             }, 10);
             
-            // ล็อกไม่ให้หน้าจอหลักเลื่อนได้ขณะดูรูปใหญ่
             document.body.style.overflow = 'hidden';
         }
 
-        /* ฟังก์ชันสำหรับปิดหน้าต่างรูปใหญ่ */
         function closeLightbox() {
             const modal = document.getElementById('lightbox-modal');
             modal.classList.remove('opacity-100');
             modal.classList.add('opacity-0');
             
-            // รอให้เอฟเฟกต์จางลงเสร็จก่อนค่อยซ่อน element
             setTimeout(() => {
                 modal.classList.remove('flex');
                 modal.classList.add('hidden');
