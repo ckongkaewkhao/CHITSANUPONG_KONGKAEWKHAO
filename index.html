@@ -130,6 +130,7 @@
                         
                         <div>
                             <h3 class="font-semibold text-base uppercase tracking-wider text-neutral-900 mb-6">Technical Competencies</h3>
+                            <!-- แก้ไขเพิ่มให้มีครบ 6 โปรแกรม -->
                             <div class="grid grid-cols-2 gap-x-6 gap-y-8 text-neutral-600 font-medium text-sm">
                                 <div class="flex items-center gap-4">
                                     <div class="w-8 h-8 bg-neutral-100 flex items-center justify-center text-xs font-bold text-neutral-400 shrink-0">?</div>
@@ -147,6 +148,14 @@
                                     <div class="w-8 h-8 bg-neutral-100 flex items-center justify-center text-xs font-bold text-neutral-400 shrink-0">?</div>
                                     <span>D5 Render</span>
                                 </div>
+                                <div class="flex items-center gap-4">
+                                    <div class="w-8 h-8 bg-neutral-100 flex items-center justify-center text-xs font-bold text-neutral-400 shrink-0">?</div>
+                                    <span>Photoshop</span>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <div class="w-8 h-8 bg-neutral-100 flex items-center justify-center text-xs font-bold text-neutral-400 shrink-0">?</div>
+                                    <span>Illustrator</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -155,9 +164,9 @@
 
             <section id="view-projects" class="view-section hidden">
                 <div class="max-w-6xl pt-4 md:pt-12 fade-in pb-20">
-                    <div class="grid grid-cols-1 gap-y-24 max-w-4xl mx-auto">
+                    <!-- กลับมาใช้ 2 คอลัมน์ ตามโครงสร้างแรกของคุณ -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16">
                         
-                        <!-- List of Projects -->
                         <div onclick="openProject('yourstream')" class="group cursor-pointer flex flex-col gap-4">
                             <div class="w-full aspect-[4/3] bg-neutral-50 rounded-sm overflow-hidden relative border border-neutral-100">
                                 <img src="images/yourstream-thumb.jpg" alt="Your Stream Thumbnail" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-10" onerror="this.style.display='none';">
@@ -212,21 +221,16 @@
                 </div>
             </section>
 
-            <!-- 🌟 หน้าแสดงรายละเอียดโปรเจกต์ (แบบเลื่อนลงแนวตั้ง Vertical Scroll) 🌟 -->
+            <!-- หน้าแสดงรายละเอียดโปรเจกต์แบบเลื่อนลงแนวตั้ง Vertical Scroll (ภาพใหญ่) -->
             <section id="view-project-detail" class="view-section hidden w-full fade-in pb-32">
-                
-                <!-- ปุ่มย้อนกลับ Fix ไว้ด้านบนสุด -->
                 <div class="sticky top-0 bg-white/95 backdrop-blur-md z-40 py-6 mb-8 w-full border-b border-neutral-100">
                     <button onclick="navigateTo('projects')" class="inline-flex items-center text-xs uppercase tracking-widest text-neutral-400 hover:text-neutral-900 transition-colors duration-200 focus:outline-none">
                         &larr; BACK TO SELECTED WORKS
                     </button>
                 </div>
-
-                <!-- คอนเทนเนอร์หลักสำหรับจัดเรียงข้อมูล -->
                 <div id="project-vertical-container" class="flex flex-col gap-20 md:gap-32 w-full max-w-6xl mx-auto">
-                    <!-- Javascript จะนำบล็อกข้อมูล รูป และข้อความ มาต่อกันในนี้ -->
+                    <!-- Javascript จะดึงเนื้อหาเข้ามาใส่ตรงนี้ -->
                 </div>
-
             </section>
 
             <section id="view-contact" class="view-section hidden">
@@ -259,7 +263,7 @@
         </main>
     </div>
 
-    <!-- Lightbox Modal สำหรับขยายรูป -->
+    <!-- Lightbox Modal -->
     <div id="lightbox-modal" onclick="closeLightbox()" class="fixed inset-0 bg-neutral-950/90 z-[100] hidden flex items-center justify-center p-4 md:p-12 cursor-zoom-out transition-opacity duration-300 opacity-0">
         <button onclick="closeLightbox()" class="absolute top-6 right-6 text-neutral-400 hover:text-white text-xs uppercase tracking-widest font-mono z-[110] focus:outline-none">
             [ Close &times; ]
@@ -269,7 +273,6 @@
     </div>
 
     <script>
-        // 🌟 โครงสร้าง Data ที่ครบถ้วนทุกโปรเจกต์ 🌟
         const projectData = {
             yourstream: {
                 title: "YOUR STREAM",
@@ -313,10 +316,9 @@
                         status: "Academic Project Y3",
                         desc: "Nongbon Lake Sports Center Park stands as one of Bangkok's key \"green lungs.\" Nestled in Soi Chaloem Phra Kiat R.9 Soi 43, Prawet District, this park is the ultimate hub for nature and outdoor fitness. Covering an expansive 644 rai, its vast landscape supports a diverse range of activities, with a special emphasis on water sports and outdoor recreation. Dominated by a large body of water, Nongbon Lake serves a dual purpose as a vital reservoir and an open-air sports arena."
                     },
-                    // แบ่งรูปภาพที่เคยอยู่ในกลุ่มเดียวกัน ออกมาเป็นภาพใหญ่ๆ ทีละภาพ
-                    { type: "landscape", url: "images/nongbon-1.jpg", caption: "" },
+                    { type: "landscape", url: "images/nongbon-1.jpg", caption: "01 / Park Perspective Views" },
                     { type: "landscape", url: "images/nongbon-2.jpg", caption: "01 / Park Perspective Views" },
-                    { type: "landscape", url: "images/nongbon-3.jpg", caption: "" },
+                    { type: "landscape", url: "images/nongbon-3.jpg", caption: "02 / Water Circulation & Diagrams" },
                     { type: "landscape", url: "images/nongbon-4.jpg", caption: "02 / Water Circulation & Diagrams" }
                 ]
             },
