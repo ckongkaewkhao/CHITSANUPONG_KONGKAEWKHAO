@@ -248,7 +248,7 @@
 
             <!-- หน้าแสดงรายละเอียดโปรเจกต์แบบเลื่อนลงแนวตั้ง Vertical Scroll (ภาพใหญ่) -->
             <section id="view-project-detail" class="view-section hidden w-full fade-in pb-32">
-                <div class="sticky top-0 bg-white/95 backdrop-blur-md z-40 py-6 mb-8 w-full border-b border-neutral-100">
+                <div class="sticky top-0 bg-white/95 backdrop-blur-md z-40 py-6 mb-8 w-full">
                     <button onclick="navigateTo('projects')" class="inline-flex items-center text-xs uppercase tracking-widest text-neutral-400 hover:text-neutral-900 transition-colors duration-200 focus:outline-none">
                         &larr; BACK TO SELECTED WORKS
                     </button>
@@ -407,75 +407,79 @@
         }
 
         function openProject(projectId) {
-            const data = projectData[projectId];
-            if(!data) return;
+    const data = projectData[projectId];
+    if(!data) return;
 
-            const container = document.getElementById('project-vertical-container');
-            container.innerHTML = ''; 
+    const container = document.getElementById('project-vertical-container');
+    container.innerHTML = ''; 
+    
+    if(data.blocks) {
+        data.blocks.forEach(block => {
             
-            if(data.blocks) {
-                data.blocks.forEach(block => {
-                    
-                    if (block.type === 'info') {
-                        container.innerHTML += `
-                            <div class="space-y-10 w-full max-w-4xl">
-                                <div>
-                                    <h2 class="text-4xl md:text-5xl font-medium tracking-tight text-neutral-900 leading-tight">${data.title}</h2>
-                                    <p class="text-sm text-neutral-400 uppercase tracking-widest mt-4">${block.location}</p>
-                                </div>
-                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-neutral-100 text-xs uppercase tracking-wider">
-                                    <div><span class="text-neutral-400 block mb-1">Typology</span><span class="text-neutral-900">${block.typology}</span></div>
-                                    <div><span class="text-neutral-400 block mb-1">Scale</span><span class="text-neutral-900">${block.size}</span></div>
-                                    <div><span class="text-neutral-400 block mb-1">Status</span><span class="text-neutral-900">${block.status}</span></div>
-                                </div>
-                                <p class="text-base md:text-lg font-light text-neutral-600 leading-relaxed pt-4">${block.desc}</p>
-                            </div>
-                        `;
-                    } 
-                    
-                    else if (block.type === 'landscape') {
-                        container.innerHTML += `
-                            <div class="w-full flex flex-col gap-6">
-                                <div class="w-full bg-neutral-50 border border-neutral-100 cursor-zoom-in group" onclick="openLightbox('${block.url}', '${block.caption}')">
-                                    <img src="${block.url}" alt="${block.caption}" class="w-full h-auto object-contain transition-opacity duration-300 group-hover:opacity-90" onerror="this.style.display='none';">
-                                </div>
-                                <div class="flex flex-col md:flex-row justify-between gap-4 px-2">
-                                    <p class="text-xs uppercase tracking-widest text-neutral-400 font-medium shrink-0 pt-1">${block.caption}</p>
-                                    ${block.text ? `<p class="text-sm md:text-base font-light text-neutral-600 leading-relaxed max-w-2xl">${block.text}</p>` : ''}
-                                </div>
-                            </div>
-                        `;
-                    } 
-                    
-                    else if (block.type === 'portrait') {
-                        const isLeft = block.align === 'left';
-                        container.innerHTML += `
-                            <div class="w-full flex flex-col ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'} gap-10 md:gap-16 items-center">
-                                <div class="w-full md:w-1/2 bg-neutral-50 border border-neutral-100 cursor-zoom-in group flex justify-center" onclick="openLightbox('${block.url}', '${block.caption}')">
-                                    <img src="${block.url}" alt="${block.caption}" class="w-full h-auto max-h-[85vh] object-contain transition-opacity duration-300 group-hover:opacity-90" onerror="this.style.display='none';">
-                                </div>
-                                <div class="w-full md:w-1/2 flex flex-col justify-center gap-6 px-4 md:px-0">
-                                    ${block.text ? `<p class="text-base md:text-lg font-light text-neutral-600 leading-relaxed">${block.text}</p>` : ''}
-                                    <p class="text-xs uppercase tracking-widest text-neutral-400 font-medium border-t border-neutral-100 pt-6 mt-2">${block.caption}</p>
-                                </div>
-                            </div>
-                        `;
-                    }
-
-                    else if (block.type === 'text') {
-                        container.innerHTML += `
-                            <div class="w-full max-w-3xl mx-auto py-8">
-                                <p class="text-xl md:text-2xl font-light text-neutral-600 leading-relaxed text-center">
-                                    "${block.content}"
-                                </p>
-                            </div>
-                        `;
-                    }
-                });
+            if (block.type === 'info') {
+                container.innerHTML += `
+                    <div class="space-y-10 w-full max-w-4xl">
+                        <div>
+                            <h2 class="text-4xl md:text-5xl font-medium tracking-tight text-neutral-900 leading-tight">${data.title}</h2>
+                            <p class="text-sm text-neutral-400 uppercase tracking-widest mt-4">${block.location}</p>
+                        </div>
+                        <!-- ลบเส้นคั่น border-t ออกแล้ว -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 text-xs uppercase tracking-wider">
+                            <div><span class="text-neutral-400 block mb-1">Typology</span><span class="text-neutral-900">${block.typology}</span></div>
+                            <div><span class="text-neutral-400 block mb-1">Scale</span><span class="text-neutral-900">${block.size}</span></div>
+                            <div><span class="text-neutral-400 block mb-1">Status</span><span class="text-neutral-900">${block.status}</span></div>
+                        </div>
+                        <p class="text-base md:text-lg font-light text-neutral-600 leading-relaxed pt-4">${block.desc}</p>
+                    </div>
+                `;
+            } 
+            
+            else if (block.type === 'landscape') {
+                container.innerHTML += `
+                    <div class="w-full flex flex-col gap-6">
+                        <!-- ลบพื้นหลัง bg-neutral-50 และเส้นขอบ border ออกแล้ว -->
+                        <div class="w-full cursor-zoom-in group" onclick="openLightbox('${block.url}', '${block.caption}')">
+                            <img src="${block.url}" alt="${block.caption}" class="w-full h-auto object-contain transition-opacity duration-300 group-hover:opacity-90" onerror="this.style.display='none';">
+                        </div>
+                        <div class="flex flex-col md:flex-row justify-between gap-4 px-2">
+                            <p class="text-xs uppercase tracking-widest text-neutral-400 font-medium shrink-0 pt-1">${block.caption}</p>
+                            ${block.text ? `<p class="text-sm md:text-base font-light text-neutral-600 leading-relaxed max-w-2xl">${block.text}</p>` : ''}
+                        </div>
+                    </div>
+                `;
+            } 
+            
+            else if (block.type === 'portrait') {
+                const isLeft = block.align === 'left';
+                container.innerHTML += `
+                    <div class="w-full flex flex-col ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'} gap-10 md:gap-16 items-center">
+                        <!-- ลบพื้นหลัง bg-neutral-50 และเส้นขอบ border ออกแล้ว -->
+                        <div class="w-full md:w-1/2 cursor-zoom-in group flex justify-center" onclick="openLightbox('${block.url}', '${block.caption}')">
+                            <img src="${block.url}" alt="${block.caption}" class="w-full h-auto max-h-[85vh] object-contain transition-opacity duration-300 group-hover:opacity-90" onerror="this.style.display='none';">
+                        </div>
+                        <div class="w-full md:w-1/2 flex flex-col justify-center gap-6 px-4 md:px-0">
+                            ${block.text ? `<p class="text-base md:text-lg font-light text-neutral-600 leading-relaxed">${block.text}</p>` : ''}
+                            <!-- ลบเส้นคั่นเหนือ Caption ออกแล้ว -->
+                            <p class="text-xs uppercase tracking-widest text-neutral-400 font-medium pt-4 mt-2">${block.caption}</p>
+                        </div>
+                    </div>
+                `;
             }
 
-            navigateTo('project-detail');
-        }
+            else if (block.type === 'text') {
+                container.innerHTML += `
+                    <div class="w-full max-w-3xl mx-auto py-8">
+                        <p class="text-xl md:text-2xl font-light text-neutral-600 leading-relaxed text-center">
+                            "${block.content}"
+                        </p>
+                    </div>
+                `;
+            }
+        });
+    }
+
+    navigateTo('project-detail');
+}
 
         function openLightbox(imgSrc, captionText) {
             const modal = document.getElementById('lightbox-modal');
