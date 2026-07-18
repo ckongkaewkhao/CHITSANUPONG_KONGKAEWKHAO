@@ -29,72 +29,62 @@
             background: #CCCCCC;
         }
 
-        /* ซ่อน Scrollbar สำหรับเมนูมือถือ */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
         .fade-in {
-            animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: fadeIn 0.5s ease-in-out forwards;
         }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
-<body class="antialiased selection:bg-neutral-200 overflow-x-hidden bg-white">
+<body class="antialiased selection:bg-neutral-200 overflow-x-hidden">
 
-    <div class="min-h-screen flex flex-col md:flex-row bg-white">
+    <div class="min-h-screen flex flex-col md:flex-row">
         
         <!-- Sidebar -->
-        <aside class="w-full md:w-[340px] md:fixed md:top-0 md:left-0 md:h-screen p-6 md:p-12 flex flex-col justify-between bg-white z-50 border-b md:border-b-0 md:border-r border-neutral-100 relative">
-            <div class="space-y-6 md:space-y-12">
+        <aside class="w-full md:w-[340px] md:fixed md:top-0 md:left-0 md:h-screen p-8 md:p-12 flex flex-col justify-between bg-white z-50 border-r border-neutral-50">
+            <div class="space-y-12">
                 <div>
-                    <button onclick="navigateTo('home')" class="text-left group focus:outline-none w-full">
-                        <h1 class="text-lg md:text-xl font-bold tracking-tight uppercase text-orange-500 group-hover:text-orange-400 transition-colors duration-300">
+                    <button onclick="navigateTo('home')" class="text-left group focus:outline-none">
+                        <h1 class="text-lg md:text-xl font-bold tracking-tight uppercase text-orange-500 group-hover:text-orange-400 transition-colors duration-200">
                             Chitsanupong Kongkaewkhao
                         </h1>
-                        <p class="text-[11px] md:text-sm text-neutral-400 mt-1 md:mt-2 uppercase tracking-widest">Landscape Architecture Student</p>
+                        <p class="text-sm text-neutral-400 mt-2 uppercase tracking-widest">Landscape Architecture Student</p>
                     </button>
                 </div>
 
-                <!-- เปลี่ยนเมนูบนมือถือให้เป็นแนวนอน ปัดเลื่อนได้ -->
-                <nav class="flex flex-row md:flex-col space-x-6 md:space-x-0 md:space-y-5 text-sm md:text-base overflow-x-auto no-scrollbar pb-2 md:pb-0 w-full border-t md:border-t-0 border-neutral-50 pt-4 md:pt-0">
-                    <button onclick="navigateTo('about')" id="nav-about" class="text-left shrink-0 text-neutral-400 hover:text-neutral-900 transition-colors duration-300 uppercase tracking-wider font-medium focus:outline-none">
+                <nav class="flex flex-col space-y-4 text-base">
+                    <button onclick="navigateTo('about')" id="nav-about" class="text-left text-neutral-400 hover:text-neutral-900 transition-colors duration-200 uppercase tracking-wider font-medium focus:outline-none">
                         About
                     </button>
-                    <button onclick="navigateTo('projects')" id="nav-projects" class="text-left shrink-0 text-neutral-400 hover:text-neutral-900 transition-colors duration-300 uppercase tracking-wider font-medium focus:outline-none">
+                    <button onclick="navigateTo('projects')" id="nav-projects" class="text-left text-neutral-400 hover:text-neutral-900 transition-colors duration-200 uppercase tracking-wider font-medium focus:outline-none">
                         Projects
                     </button>
-                    <button onclick="navigateTo('contact')" id="nav-contact" class="text-left shrink-0 text-neutral-400 hover:text-neutral-900 transition-colors duration-300 uppercase tracking-wider font-medium focus:outline-none">
+                    <button onclick="navigateTo('contact')" id="nav-contact" class="text-left text-neutral-400 hover:text-neutral-900 transition-colors duration-200 uppercase tracking-wider font-medium focus:outline-none">
                         Contact
                     </button>
                 </nav>
             </div>
 
-            <div class="hidden md:block text-[10px] text-neutral-400 uppercase tracking-widest">
+            <div class="hidden md:block text-xs text-neutral-400 uppercase tracking-widest">
                 &copy; 2026 Chitsanupong K.
             </div>
         </aside>
 
         <!-- Main Content -->
-        <main class="w-full md:ml-[340px] p-6 sm:p-8 md:p-12 lg:p-16 flex-1 relative max-w-[100vw] bg-white">
+        <main class="w-full md:ml-[340px] p-8 md:p-12 flex-1 relative max-w-[100vw]">
             
-            <section id="view-home" class="view-section fade-in flex items-center justify-center min-h-[60vh] md:min-h-[80vh]">
-                <div class="max-w-6xl w-full flex flex-col md:flex-row items-center md:items-end justify-center gap-8 md:gap-16 py-8 md:py-12">
-                    <div class="w-full max-w-sm md:w-2/5 rounded overflow-hidden relative group cursor-pointer border border-neutral-100 shrink-0 flex items-center justify-center" onclick="navigateTo('projects')">
-                        <img src="images/featured-hero.jpg" alt="Featured Architectural Rendering" class="w-full h-auto object-contain block relative z-10 transition-transform duration-700 scale-100 group-hover:scale-[1.03]" onerror="this.style.display='none';">
-                        <div class="absolute inset-0 flex flex-col items-center justify-center bg-white/80 text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 p-8 text-center backdrop-blur-sm">
-                             <span class="text-[10px] uppercase tracking-widest font-mono text-neutral-800">View Projects</span>
+            <section id="view-home" class="view-section fade-in flex items-center justify-center min-h-[70vh] md:min-h-[80vh]">
+                <div class="max-w-6xl w-full flex flex-col md:flex-row items-center md:items-end justify-center gap-10 md:gap-16 py-12">
+                    <div class="w-full max-w-sm md:w-2/5 bg-neutral-50 rounded overflow-hidden relative group cursor-pointer border border-neutral-100 shrink-0 flex items-center justify-center" onclick="navigateTo('projects')">
+                        <img src="images/featured-hero.jpg" alt="Featured Architectural Rendering" class="w-full h-auto object-contain block relative z-10 transition-transform duration-700 scale-100 group-hover:scale-[1.02]" onerror="this.style.display='none';">
+                        <div class="absolute inset-0 flex flex-col items-center justify-center bg-neutral-50 text-neutral-400 group-hover:bg-neutral-100 transition-colors duration-300 z-0 p-8 text-center">
+                             <span class="text-[10px] uppercase tracking-widest font-mono">images/featured-hero.jpg</span>
                         </div>
                     </div>
                     <div class="w-full md:w-3/5 flex flex-col text-center md:text-right md:pb-4">
-                        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-neutral-800 leading-relaxed lg:leading-[1.15]">
+                        <h2 class="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-neutral-800 leading-relaxed md:leading-tight">
                             <span class="font-semibold text-neutral-950">Design</span> is not just what it looks like and feels like.<br class="hidden xl:block"> 
                             <span class="font-semibold text-neutral-950">Design</span> is how it works.
                         </h2>
@@ -103,11 +93,11 @@
             </section>
 
             <section id="view-about" class="view-section hidden">
-                <div class="max-w-5xl pt-4 md:pt-8 fade-in">
+                <div class="max-w-5xl pt-4 md:pt-12 fade-in">
                     <h2 class="text-sm uppercase tracking-widest text-neutral-400 mb-8 md:mb-12">Profile</h2>
                     
-                    <div class="flex flex-col md:flex-row gap-8 md:gap-14 items-start mb-16 md:mb-20">
-                        <div class="w-full sm:w-2/3 md:w-[280px] shrink-0 aspect-[3/4] bg-white rounded overflow-hidden relative border border-neutral-100 flex items-center justify-center shadow-sm">
+                    <div class="flex flex-col md:flex-row gap-10 md:gap-14 items-start mb-20">
+                        <div class="w-full md:w-[280px] shrink-0 aspect-[3/4] bg-neutral-50 rounded overflow-hidden relative border border-neutral-100 flex items-center justify-center">
                             <img src="images/profile.jpg" alt="Chitsanupong Profile" class="absolute inset-0 w-full h-full object-cover transition-all duration-500 z-10" onerror="this.style.display='none';">
                             <div class="text-center p-4 text-xs text-neutral-400 uppercase tracking-wider relative z-0">
                                 [ Profile Image ]<br>
@@ -115,15 +105,15 @@
                             </div>
                         </div>
                         
-                        <div class="space-y-6 text-base md:text-lg text-neutral-600 leading-relaxed font-light flex-1 pt-2 md:pt-0">
+                        <div class="space-y-6 text-base md:text-lg text-neutral-600 leading-relaxed font-light flex-1">
                             <h3 class="text-2xl md:text-3xl font-medium tracking-tight text-neutral-900 mb-4">Chitsanupong Kongkaewkhao (Sand)</h3>
-                            <p class="text-justify md:text-left">
+                            <p>
                                 I am a 4th-year Landscape Architecture student at Chulalongkorn University, passionate about transforming complex urban environments into high-performance, resilient public spaces. My design expertise spans urban development frameworks, brownfield redevelopment, and ecological master planning. By bridging spatial design with robust analytical tools, I leverage empirical data to mitigate microclimate issues and flood risks, ultimately creating impactful, human-scale spatial experiences.
                             </p>
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 pt-12 md:pt-16 border-t border-neutral-100 text-sm">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 pt-12 md:pt-16 border-t border-neutral-100 text-sm">
                         <div class="space-y-8">
                             <div>
                                 <h3 class="font-semibold text-base uppercase tracking-wider text-neutral-900 mb-4">Education</h3>
@@ -136,108 +126,113 @@
                         </div>
                         
                         <div>
-                            <h3 class="font-semibold text-base uppercase tracking-wider text-neutral-900 mb-6">Technical Competencies</h3>
-                            <div class="grid grid-cols-2 gap-x-6 gap-y-8 text-neutral-600 font-medium text-sm">
-                                <!-- QGIS -->
-                                <div class="flex items-center gap-4">
-                                    <div class="w-9 h-9 bg-white flex items-center justify-center shrink-0 border border-neutral-100 rounded-sm overflow-hidden shadow-sm">
-                                        <img src="images/qgis.svg" alt="QGIS" class="w-full h-full object-contain p-1.5" onerror="this.parentElement.innerHTML='?'">
-                                    </div>
-                                    <span>QGIS</span>
-                                </div>
-                                <!-- AutoCAD -->
-                                <div class="flex items-center gap-4">
-                                    <div class="w-9 h-9 bg-white flex items-center justify-center shrink-0 border border-neutral-100 rounded-sm overflow-hidden shadow-sm">
-                                        <img src="images/autocad.svg" alt="AutoCAD" class="w-full h-full object-contain p-1.5" onerror="this.parentElement.innerHTML='?'">
-                                    </div>
-                                    <span>AutoCAD</span>
-                                </div>
-                                <!-- Rhino 3D -->
-                                <div class="flex items-center gap-4">
-                                    <div class="w-9 h-9 bg-white flex items-center justify-center shrink-0 border border-neutral-100 rounded-sm overflow-hidden shadow-sm">
-                                        <img src="images/rhino.svg" alt="Rhino 3D" class="w-full h-full object-contain p-1.5" onerror="this.parentElement.innerHTML='?'">
-                                    </div>
-                                    <span>Rhino 3D</span>
-                                </div>
-                                <!-- D5 Render -->
-                                <div class="flex items-center gap-4">
-                                    <div class="w-9 h-9 bg-white flex items-center justify-center shrink-0 border border-neutral-100 rounded-sm overflow-hidden shadow-sm">
-                                        <img src="images/d5render.svg" alt="D5 Render" class="w-full h-full object-contain p-1.5" onerror="this.parentElement.innerHTML='?'">
-                                    </div>
-                                    <span>D5 Render</span>
-                                </div>
-                                <!-- Photoshop -->
-                                <div class="flex items-center gap-4">
-                                    <div class="w-9 h-9 bg-white flex items-center justify-center shrink-0 border border-neutral-100 rounded-sm overflow-hidden shadow-sm">
-                                        <img src="images/photoshop.svg" alt="Photoshop" class="w-full h-full object-contain p-1.5" onerror="this.parentElement.innerHTML='?'">
-                                    </div>
-                                    <span>Photoshop</span>
-                                </div>
-                                <!-- Illustrator -->
-                                <div class="flex items-center gap-4">
-                                    <div class="w-9 h-9 bg-white flex items-center justify-center shrink-0 border border-neutral-100 rounded-sm overflow-hidden shadow-sm">
-                                        <img src="images/illustrator.svg" alt="Illustrator" class="w-full h-full object-contain p-1.5" onerror="this.parentElement.innerHTML='?'">
-                                    </div>
-                                    <span>Illustrator</span>
-                                </div>
-                            </div>
-                        </div>
+    <h3 class="font-semibold text-base uppercase tracking-wider text-neutral-900 mb-6">Technical Competencies</h3>
+    <div class="grid grid-cols-2 gap-x-6 gap-y-8 text-neutral-600 font-medium text-sm">
+        
+        <!-- QGIS -->
+        <div class="flex items-center gap-4">
+            <div class="w-8 h-8 bg-neutral-50 flex items-center justify-center shrink-0 border border-neutral-100 rounded-sm overflow-hidden">
+                <img src="images/qgis.svg" alt="QGIS" class="w-full h-full object-contain p-1" onerror="this.parentElement.innerHTML='?'">
+            </div>
+            <span>QGIS</span>
+        </div>
+
+        <!-- AutoCAD -->
+        <div class="flex items-center gap-4">
+            <div class="w-8 h-8 bg-neutral-50 flex items-center justify-center shrink-0 border border-neutral-100 rounded-sm overflow-hidden">
+                <img src="images/autocad.svg" alt="AutoCAD" class="w-full h-full object-contain p-1" onerror="this.parentElement.innerHTML='?'">
+            </div>
+            <span>AutoCAD</span>
+        </div>
+
+        <!-- Rhino 3D -->
+        <div class="flex items-center gap-4">
+            <div class="w-8 h-8 bg-neutral-50 flex items-center justify-center shrink-0 border border-neutral-100 rounded-sm overflow-hidden">
+                <img src="images/rhino.svg" alt="Rhino 3D" class="w-full h-full object-contain p-1" onerror="this.parentElement.innerHTML='?'">
+            </div>
+            <span>Rhino 3D</span>
+        </div>
+
+        <!-- D5 Render -->
+        <div class="flex items-center gap-4">
+            <div class="w-8 h-8 bg-neutral-50 flex items-center justify-center shrink-0 border border-neutral-100 rounded-sm overflow-hidden">
+                <img src="images/d5render.svg" alt="D5 Render" class="w-full h-full object-contain p-1" onerror="this.parentElement.innerHTML='?'">
+            </div>
+            <span>D5 Render</span>
+        </div>
+
+        <!-- Photoshop -->
+        <div class="flex items-center gap-4">
+            <div class="w-8 h-8 bg-neutral-50 flex items-center justify-center shrink-0 border border-neutral-100 rounded-sm overflow-hidden">
+                <img src="images/photoshop.svg" alt="Photoshop" class="w-full h-full object-contain p-1" onerror="this.parentElement.innerHTML='?'">
+            </div>
+            <span>Photoshop</span>
+        </div>
+
+        <!-- Illustrator -->
+        <div class="flex items-center gap-4">
+            <div class="w-8 h-8 bg-neutral-50 flex items-center justify-center shrink-0 border border-neutral-100 rounded-sm overflow-hidden">
+                <img src="images/illustrator.svg" alt="Illustrator" class="w-full h-full object-contain p-1" onerror="this.parentElement.innerHTML='?'">
+            </div>
+            <span>Illustrator</span>
+        </div>
+
+    </div>
+</div>
                     </div>
                 </div>
             </section>
-
-            <section id="view-projects" class="view-section hidden">
-                <div class="max-w-5xl mx-auto pt-4 md:pt-8 fade-in pb-20">
-                    <!-- ปรับ Grid ให้เป็น 2 คอลัมน์บนจอ iPad/Desktop ช่วยให้ UX ดีขึ้นมาก -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 lg:gap-x-12 gap-y-16">
+                       <section id="view-projects" class="view-section hidden">
+    <div class="max-w-4xl mx-auto pt-4 md:pt-12 fade-in pb-20">
+        <div class="grid grid-cols-1 gap-y-24">
                         
                         <div onclick="openProject('yourstream')" class="group cursor-pointer flex flex-col gap-4">
-                            <div class="w-full aspect-[16/9] bg-white rounded-sm overflow-hidden relative border border-neutral-100 shadow-sm">
+                            <div class="w-full aspect-[16/9] bg-neutral-50 rounded-sm overflow-hidden relative border border-neutral-100">
                                 <img src="images/yourstream-thumb.jpg" alt="Your Stream Thumbnail" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-10" onerror="this.style.display='none';">
                             </div>
                             <div>
-                                <h3 class="text-base font-semibold text-neutral-900 group-hover:text-orange-500 transition-colors duration-300">YOUR STREAM</h3>
-                                <p class="text-[11px] text-neutral-400 uppercase tracking-widest mt-1.5">Samutsakhon, Thailand</p>
+                                <h3 class="text-base font-medium text-neutral-900 group-hover:text-neutral-500 transition-colors duration-200">YOUR STREAM</h3>
+                                <p class="text-[11px] text-neutral-400 uppercase tracking-widest mt-1">Samutsakhon, Thailand</p>
                             </div>
                         </div>
 
                         <div onclick="openProject('chiangmaizoo')" class="group cursor-pointer flex flex-col gap-4">
-                            <div class="w-full aspect-[16/9] bg-white rounded-sm overflow-hidden relative border border-neutral-100 shadow-sm">
+                            <div class="w-full aspect-[16/9] bg-neutral-50 rounded-sm overflow-hidden relative border border-neutral-100">
                                 <img src="images/chiangmaizoo-thumb.png" alt="Chiangmai Zoo Thumbnail" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-10" onerror="this.style.display='none';">
                             </div>
                             <div>
-                                <h3 class="text-base font-semibold text-neutral-900 group-hover:text-orange-500 transition-colors duration-300">CHAINGMAI ZOO</h3>
-                                <p class="text-[11px] text-neutral-400 uppercase tracking-widest mt-1.5">Chiang Mai, Thailand</p>
+                                <h3 class="text-base font-medium text-neutral-900 group-hover:text-neutral-500 transition-colors duration-200">CHAINGMAI ZOO</h3>
+                                <p class="text-[11px] text-neutral-400 uppercase tracking-widest mt-1">Chiang Mai, Thailand</p>
                             </div>
                         </div>
 
                         <div onclick="openProject('nongbon')" class="group cursor-pointer flex flex-col gap-4">
-                            <div class="w-full aspect-[16/9] bg-white rounded-sm overflow-hidden relative border border-neutral-100 shadow-sm">
+                            <div class="w-full aspect-[16/9] bg-neutral-50 rounded-sm overflow-hidden relative border border-neutral-100">
                                 <img src="images/nongbon-thumb.jpg" alt="Nongbon Lake Thumbnail" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-10" onerror="this.style.display='none';">
                             </div>
                             <div>
-                                <h3 class="text-base font-semibold text-neutral-900 group-hover:text-orange-500 transition-colors duration-300">TARASUPHAWAT (NONGBON LAKE)</h3>
-                                <p class="text-[11px] text-neutral-400 uppercase tracking-widest mt-1.5">Bangkok, Thailand</p>
+                                <h3 class="text-base font-medium text-neutral-900 group-hover:text-neutral-500 transition-colors duration-200">TARASUPHAWAT (NONGBON LAKE)</h3>
+                                <p class="text-[11px] text-neutral-400 uppercase tracking-widest mt-1">Bangkok, Thailand</p>
                             </div>
                         </div>
 
                         <div onclick="openProject('fragile')" class="group cursor-pointer flex flex-col gap-4">
-                            <div class="w-full aspect-[16/9] bg-white rounded-sm overflow-hidden relative border border-neutral-100 shadow-sm">
+                            <div class="w-full aspect-[16/9] bg-neutral-50 rounded-sm overflow-hidden relative border border-neutral-100">
                                 <img src="images/fragile-thumb.jpg" alt="Fragile Memorial Park Thumbnail" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-10" onerror="this.style.display='none';">
                             </div>
                             <div>
-                                <h3 class="text-base font-semibold text-neutral-900 group-hover:text-orange-500 transition-colors duration-300">FRAGILE (MEMORIAL PARK)</h3>
-                                <p class="text-[11px] text-neutral-400 uppercase tracking-widest mt-1.5">Memorial Landscape, Bangkok, Thailand</p>
+                                <h3 class="text-base font-medium text-neutral-900 group-hover:text-neutral-500 transition-colors duration-200">FRAGILE (MEMORIAL PARK)</h3>
+                                <p class="text-[11px] text-neutral-400 uppercase tracking-widest mt-1">Memorial Landscape,Bangkok,Thailand</p>
                             </div>
                         </div>
 
                         <div onclick="openProject('houseno1')" class="group cursor-pointer flex flex-col gap-4">
-                            <div class="w-full aspect-[16/9] bg-white rounded-sm overflow-hidden relative border border-neutral-100 shadow-sm">
+                            <div class="w-full aspect-[16/9] bg-neutral-50 rounded-sm overflow-hidden relative border border-neutral-100">
                                 <img src="images/houseno1-thumb.jpg" alt="House No 1 Thumbnail" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-10" onerror="this.style.display='none';">
                             </div>
                             <div>
-                                <h3 class="text-base font-semibold text-neutral-900 group-hover:text-orange-500 transition-colors duration-300">HOUSE NO 1</h3>
-                                <p class="text-[11px] text-neutral-400 uppercase tracking-widest mt-1.5">Residential Context</p>
+                                <h3 class="text-base font-medium text-neutral-900 group-hover:text-neutral-500 transition-colors duration-200">HOUSE NO 1</h3>
+                                <p class="text-[11px] text-neutral-400 uppercase tracking-widest mt-1">Residential Context</p>
                             </div>
                         </div>
 
@@ -247,37 +242,37 @@
 
             <!-- หน้าแสดงรายละเอียดโปรเจกต์แบบเลื่อนลงแนวตั้ง Vertical Scroll (ภาพใหญ่) -->
             <section id="view-project-detail" class="view-section hidden w-full fade-in pb-32">
-                <div class="sticky top-0 bg-white/95 backdrop-blur-md z-40 py-4 md:py-6 mb-6 md:mb-8 w-full border-b border-neutral-100 md:border-none">
-                    <button onclick="navigateTo('projects')" class="inline-flex items-center text-xs uppercase tracking-widest text-neutral-400 hover:text-neutral-900 transition-colors duration-300 focus:outline-none font-medium">
+                <div class="sticky top-0 bg-white/95 backdrop-blur-md z-40 py-6 mb-8 w-full">
+                    <button onclick="navigateTo('projects')" class="inline-flex items-center text-xs uppercase tracking-widest text-neutral-400 hover:text-neutral-900 transition-colors duration-200 focus:outline-none">
                         &larr; BACK TO SELECTED WORKS
                     </button>
                 </div>
-                <div id="project-vertical-container" class="flex flex-col gap-16 md:gap-24 lg:gap-32 w-full max-w-6xl mx-auto">
+                <div id="project-vertical-container" class="flex flex-col gap-20 md:gap-32 w-full max-w-6xl mx-auto">
                     <!-- Javascript จะดึงเนื้อหาเข้ามาใส่ตรงนี้ -->
                 </div>
             </section>
 
             <section id="view-contact" class="view-section hidden">
-                <div class="max-w-2xl pt-4 md:pt-8 fade-in">
-                    <h2 class="text-xs uppercase tracking-widest text-neutral-400 mb-8 md:mb-12">Contact & Inquiries</h2>
+                <div class="max-w-2xl pt-4 md:pt-12 fade-in">
+                    <h2 class="text-xs uppercase tracking-widest text-neutral-400 mb-12">Contact & Inquiries</h2>
                     
                     <div class="space-y-8 text-sm font-light text-neutral-600">
-                        <p class="leading-relaxed">
+                        <p>
                             I am currently looking for an internship placement at a landscape architecture firm where I can contribute to forward-thinking ecological planning and refine my spatial design skills.
                         </p>
                         
                         <div class="pt-8 border-t border-neutral-100 space-y-6 text-neutral-900 font-medium">
                             <div>
-                                <span class="text-xs text-neutral-400 block font-normal uppercase tracking-wider mb-1.5">Email Connection</span>
-                                <a href="mailto:Ckongkaewkhao@gmail.com" class="text-base hover:text-orange-500 underline underline-offset-4 transition-colors duration-300">Ckongkaewkhao@gmail.com</a>
+                                <span class="text-xs text-neutral-400 block font-normal uppercase tracking-wider mb-1">Email Connection</span>
+                                <a href="mailto:Ckongkaewkhao@gmail.com" class="text-base hover:text-neutral-500 underline underline-offset-4 transition-colors">Ckongkaewkhao@gmail.com</a>
                             </div>
                             <div>
-                                <span class="text-xs text-neutral-400 block font-normal uppercase tracking-wider mb-1.5">Mobile Hotline</span>
-                                <a href="tel:0982736816" class="text-base hover:text-orange-500 transition-colors duration-300 font-mono tracking-tight">098-273-6816</a>
+                                <span class="text-xs text-neutral-400 block font-normal uppercase tracking-wider mb-1">Mobile Hotline</span>
+                                <a href="tel:0982736816" class="text-base hover:text-neutral-500 transition-colors font-mono tracking-tight">098-273-6816</a>
                             </div>
                             <div>
-                                <span class="text-xs text-neutral-400 block font-normal uppercase tracking-wider mb-1.5">Instagram Network</span>
-                                <a href="https://instagram.com/__S_a_n_d._" target="_blank" class="text-base hover:text-orange-500 underline underline-offset-4 transition-colors duration-300">@__S_a_n_d._</a>
+                                <span class="text-xs text-neutral-400 block font-normal uppercase tracking-wider mb-1">Instagram Network</span>
+                                <a href="https://instagram.com/__S_a_n_d._" target="_blank" class="text-base hover:text-neutral-500 underline underline-offset-4 transition-colors">@__S_a_n_d._</a>
                             </div>
                         </div>
                     </div>
@@ -288,30 +283,35 @@
     </div>
 
     <!-- Lightbox Modal -->
-    <div id="lightbox-modal" onclick="closeLightbox()" class="fixed inset-0 bg-white/95 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4 md:p-12 cursor-zoom-out transition-opacity duration-300 opacity-0">
-        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-neutral-500 hover:text-neutral-900 text-xs uppercase tracking-widest font-mono z-[110] focus:outline-none">
+    <div id="lightbox-modal" onclick="closeLightbox()" class="fixed inset-0 bg-neutral-950/90 z-[100] hidden flex items-center justify-center p-4 md:p-12 cursor-zoom-out transition-opacity duration-300 opacity-0">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-neutral-400 hover:text-white text-xs uppercase tracking-widest font-mono z-[110] focus:outline-none">
             [ Close &times; ]
         </button>
-        <img id="lightbox-img" src="" alt="Enlarged" class="max-w-full max-h-[85vh] object-contain rounded shadow-lg cursor-default border border-neutral-100" onclick="event.stopPropagation();">
-        <p id="lightbox-caption" class="absolute bottom-6 left-0 right-0 text-xs tracking-wider uppercase text-neutral-500 text-center font-medium bg-white/80 py-2"></p>
+        <img id="lightbox-img" src="" alt="Enlarged" class="max-w-full max-h-[85vh] object-contain rounded shadow-2xl cursor-default" onclick="event.stopPropagation();">
+        <p id="lightbox-caption" class="absolute bottom-6 left-0 right-0 text-xs tracking-wider uppercase text-neutral-400 text-center font-light"></p>
     </div>
 
     <script>
-        // --- เริ่ม: สคริปต์สลับนามสกุลไฟล์อัตโนมัติ ---
+        // --- เริ่ม: สคริปต์สลับนามสกุลไฟล์อัตโนมัติ (แก้ไขปัญหาพิมพ์เล็ก/ใหญ่) ---
         window.addEventListener('error', function(e) {
             var element = e.target;
+            // เช็กว่าเป็นแท็ก <img> ที่โหลดพังใช่หรือไม่
             if (element.tagName && element.tagName.toLowerCase() === 'img') {
+                // ถ้าเคยลองเปลี่ยนไฟล์ไปแล้ว 1 รอบแต่ยังพังอีก ให้หยุดการทำงานแล้วซ่อนรูป (กันลูปค้าง)
                 if (element.getAttribute('data-retried')) {
                     element.style.display = 'none';
                     return;
                 }
                 
+                // ล้างคำสั่ง onerror ใน HTML เดิมทิ้ง เพื่อไม่ให้มันรีบด่วนซ่อนรูป
                 element.onerror = null; 
+                // ฝังแท็กไว้ว่าเรากำลังพยายามสลับนามสกุลไฟล์แล้วนะ
                 element.setAttribute('data-retried', 'true');
                 
                 var src = element.src;
                 var newSrc = src;
                 
+                // สลับนามสกุลไฟล์ เล็ก <-> ใหญ่
                 if (src.match(/\.jpg$/)) newSrc = src.replace(/\.jpg$/, '.JPG');
                 else if (src.match(/\.JPG$/)) newSrc = src.replace(/\.JPG$/, '.jpg');
                 else if (src.match(/\.png$/)) newSrc = src.replace(/\.png$/, '.PNG');
@@ -321,9 +321,10 @@
                 else if (src.match(/\.gif$/)) newSrc = src.replace(/\.gif$/, '.GIF');
                 else if (src.match(/\.GIF$/)) newSrc = src.replace(/\.GIF$/, '.gif');
                 
+                // ถ้านามสกุลมีการเปลี่ยนแปลง ให้เอาไปใส่แทนที่อันเก่า
                 if (newSrc !== src) {
                     element.src = newSrc;
-                    element.style.display = ''; 
+                    element.style.display = ''; // บังคับไม่ให้รูปโดนซ่อน
                 } else {
                     element.style.display = 'none';
                 }
@@ -499,29 +500,31 @@
             
             if (block.type === 'info') {
                 container.innerHTML += `
-                    <div class="space-y-8 md:space-y-10 w-full max-w-4xl">
+                    <div class="space-y-10 w-full max-w-4xl">
                         <div>
-                            <h2 class="text-3xl md:text-5xl font-medium tracking-tight text-neutral-900 leading-tight">${data.title}</h2>
-                            <p class="text-xs md:text-sm text-neutral-400 uppercase tracking-widest mt-2 md:mt-4">${block.location}</p>
+                            <h2 class="text-4xl md:text-5xl font-medium tracking-tight text-neutral-900 leading-tight">${data.title}</h2>
+                            <p class="text-sm text-neutral-400 uppercase tracking-widest mt-4">${block.location}</p>
                         </div>
+                        <!-- ลบเส้นคั่น border-t ออกแล้ว -->
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 text-xs uppercase tracking-wider">
-                            <div><span class="text-neutral-400 block mb-1">Typology</span><span class="text-neutral-900 font-medium">${block.typology}</span></div>
-                            <div><span class="text-neutral-400 block mb-1">Scale</span><span class="text-neutral-900 font-medium">${block.size}</span></div>
-                            <div><span class="text-neutral-400 block mb-1">Status</span><span class="text-neutral-900 font-medium">${block.status}</span></div>
+                            <div><span class="text-neutral-400 block mb-1">Typology</span><span class="text-neutral-900">${block.typology}</span></div>
+                            <div><span class="text-neutral-400 block mb-1">Scale</span><span class="text-neutral-900">${block.size}</span></div>
+                            <div><span class="text-neutral-400 block mb-1">Status</span><span class="text-neutral-900">${block.status}</span></div>
                         </div>
-                        <p class="text-sm md:text-base lg:text-lg font-light text-neutral-600 leading-relaxed pt-4 text-justify md:text-left">${block.desc}</p>
+                        <p class="text-base md:text-lg font-light text-neutral-600 leading-relaxed pt-4">${block.desc}</p>
                     </div>
                 `;
             } 
             
             else if (block.type === 'landscape') {
                 container.innerHTML += `
-                    <div class="w-full flex flex-col gap-4 md:gap-6">
+                    <div class="w-full flex flex-col gap-6">
+                        <!-- ลบพื้นหลัง bg-neutral-50 และเส้นขอบ border ออกแล้ว -->
                         <div class="w-full cursor-zoom-in group" onclick="openLightbox('${block.url}', '${block.caption}')">
-                            <img src="${block.url}" alt="${block.caption}" class="w-full h-auto object-contain transition-opacity duration-300 group-hover:opacity-90 border border-neutral-100/50 shadow-sm rounded-sm" onerror="this.style.display='none';">
+                            <img src="${block.url}" alt="${block.caption}" class="w-full h-auto object-contain transition-opacity duration-300 group-hover:opacity-90" onerror="this.style.display='none';">
                         </div>
-                        <div class="flex flex-col md:flex-row justify-between gap-2 md:gap-4 px-1 md:px-2">
-                            <p class="text-[10px] md:text-xs uppercase tracking-widest text-neutral-400 font-medium flex-1 break-words pt-1 leading-relaxed">${block.caption}</p>
+                        <div class="flex flex-col md:flex-row justify-between gap-4 px-2">
+                            <p class="text-xs uppercase tracking-widest text-neutral-400 font-medium flex-1 break-words pt-1">${block.caption}</p>
                             ${block.text ? `<p class="text-sm md:text-base font-light text-neutral-600 leading-relaxed max-w-2xl">${block.text}</p>` : ''}
                         </div>
                     </div>
@@ -531,13 +534,15 @@
             else if (block.type === 'portrait') {
                 const isLeft = block.align === 'left';
                 container.innerHTML += `
-                    <div class="w-full flex flex-col ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 md:gap-12 lg:gap-16 items-center">
+                    <div class="w-full flex flex-col ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'} gap-10 md:gap-16 items-center">
+                        <!-- ลบพื้นหลัง bg-neutral-50 และเส้นขอบ border ออกแล้ว -->
                         <div class="w-full md:w-1/2 cursor-zoom-in group flex justify-center" onclick="openLightbox('${block.url}', '${block.caption}')">
-                            <img src="${block.url}" alt="${block.caption}" class="w-full h-auto max-h-[85vh] object-contain transition-opacity duration-300 group-hover:opacity-90 shadow-sm border border-neutral-100/50 rounded-sm" onerror="this.style.display='none';">
+                            <img src="${block.url}" alt="${block.caption}" class="w-full h-auto max-h-[85vh] object-contain transition-opacity duration-300 group-hover:opacity-90" onerror="this.style.display='none';">
                         </div>
-                        <div class="w-full md:w-1/2 flex flex-col justify-center gap-4 md:gap-6 px-2 md:px-0">
-                            ${block.text ? `<p class="text-sm md:text-base lg:text-lg font-light text-neutral-600 leading-relaxed">${block.text}</p>` : ''}
-                            <p class="text-[10px] md:text-xs uppercase tracking-widest text-neutral-400 font-medium pt-2 md:pt-4 break-words leading-relaxed">${block.caption}</p>
+                        <div class="w-full md:w-1/2 flex flex-col justify-center gap-6 px-4 md:px-0">
+                            ${block.text ? `<p class="text-base md:text-lg font-light text-neutral-600 leading-relaxed">${block.text}</p>` : ''}
+                            <!-- ลบเส้นคั่นเหนือ Caption ออกแล้ว -->
+                            <p class="text-xs uppercase tracking-widest text-neutral-400 font-medium pt-4 mt-2">${block.caption}</p>
                         </div>
                     </div>
                 `;
@@ -545,8 +550,8 @@
 
             else if (block.type === 'text') {
                 container.innerHTML += `
-                    <div class="w-full max-w-3xl mx-auto py-6 md:py-8">
-                        <p class="text-lg md:text-xl lg:text-2xl font-light text-neutral-600 leading-relaxed text-center">
+                    <div class="w-full max-w-3xl mx-auto py-8">
+                        <p class="text-xl md:text-2xl font-light text-neutral-600 leading-relaxed text-center">
                             "${block.content}"
                         </p>
                     </div>
