@@ -298,6 +298,46 @@
     </div>
 
     <script>
+        // --- เริ่ม: สคริปต์สลับนามสกุลไฟล์อัตโนมัติ (แก้ไขปัญหาพิมพ์เล็ก/ใหญ่) ---
+        window.addEventListener('error', function(e) {
+            var element = e.target;
+            // เช็กว่าเป็นแท็ก <img> ที่โหลดพังใช่หรือไม่
+            if (element.tagName && element.tagName.toLowerCase() === 'img') {
+                // ถ้าเคยลองเปลี่ยนไฟล์ไปแล้ว 1 รอบแต่ยังพังอีก ให้หยุดการทำงานแล้วซ่อนรูป (กันลูปค้าง)
+                if (element.getAttribute('data-retried')) {
+                    element.style.display = 'none';
+                    return;
+                }
+                
+                // ล้างคำสั่ง onerror ใน HTML เดิมทิ้ง เพื่อไม่ให้มันรีบด่วนซ่อนรูป
+                element.onerror = null; 
+                // ฝังแท็กไว้ว่าเรากำลังพยายามสลับนามสกุลไฟล์แล้วนะ
+                element.setAttribute('data-retried', 'true');
+                
+                var src = element.src;
+                var newSrc = src;
+                
+                // สลับนามสกุลไฟล์ เล็ก <-> ใหญ่
+                if (src.match(/\.jpg$/)) newSrc = src.replace(/\.jpg$/, '.JPG');
+                else if (src.match(/\.JPG$/)) newSrc = src.replace(/\.JPG$/, '.jpg');
+                else if (src.match(/\.png$/)) newSrc = src.replace(/\.png$/, '.PNG');
+                else if (src.match(/\.PNG$/)) newSrc = src.replace(/\.PNG$/, '.png');
+                else if (src.match(/\.jpeg$/)) newSrc = src.replace(/\.jpeg$/, '.JPEG');
+                else if (src.match(/\.JPEG$/)) newSrc = src.replace(/\.JPEG$/, '.jpeg');
+                else if (src.match(/\.gif$/)) newSrc = src.replace(/\.gif$/, '.GIF');
+                else if (src.match(/\.GIF$/)) newSrc = src.replace(/\.GIF$/, '.gif');
+                
+                // ถ้านามสกุลมีการเปลี่ยนแปลง ให้เอาไปใส่แทนที่อันเก่า
+                if (newSrc !== src) {
+                    element.src = newSrc;
+                    element.style.display = ''; // บังคับไม่ให้รูปโดนซ่อน
+                } else {
+                    element.style.display = 'none';
+                }
+            }
+        }, true);
+        // --- จบ: สคริปต์สลับนามสกุลไฟล์อัตโนมัติ ---
+
         const projectData = {
             yourstream: {
                 title: "YOUR STREAM",
